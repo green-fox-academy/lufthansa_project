@@ -6,10 +6,10 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import TestUtils from 'react-addons-test-utils';
 
-import Main from '../client/index.jsx';
+const Main = require('../client/index.jsx');
 
 describe('Main', function() {
-  // var h1;
+  var h1;
 
   it('should exists', function() {
     var renderedComponent = TestUtils.renderIntoDocument(
@@ -17,12 +17,15 @@ describe('Main', function() {
     );
     expect(TestUtils.isCompositeComponent(renderedComponent)).toBeTruthy();
 
-    // var renderedh1 = TestUtils.findRenderedDOMComponentWithTag(renderedComponent, h1);
-    //
-    // h1 = ReactDom.findDOMNode(renderedh1);
+    var renderedh1 = TestUtils.findRenderedDOMComponentWithTag(renderedComponent, 'h1'
+    );
+
+    h1 = ReactDOM.findDOMNode(renderedh1);
   });
 
-  // it('contain Hello World text', function() {
-  //   expect(h1.textContent).toEqual("Hello World!");
-  // });
+  it('contain Hello World text', function() {
+    expect(h1.textContent).toEqual("Hello World");
+
+  });
+
 });
