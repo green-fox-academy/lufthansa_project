@@ -3,7 +3,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-//() => (<h1>Hello World!</h1>);
 
 var Main = React.createClass ({
 	render: function () {
