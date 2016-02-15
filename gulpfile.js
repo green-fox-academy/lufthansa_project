@@ -6,15 +6,14 @@ var jasmine = require('gulp-jasmine');
 var jshint = require('gulp-jshint');
 var jscs = require('gulp-jscs');
 
-
-gulp.task('jshint', function() {
+gulp.task('jshint', function () {
   return gulp.src('./*.js')
     .pipe(jshint('.jshintrc'))
     .pipe(jshint.reporter('jshint-stylish'))
     .pipe(jshint.reporter('fail'))
       .pipe(notify({
         title: 'JSHint',
-          message: 'JSHint Passed. Let it fly!',
+        message: 'JSHint Passed. Let it fly!',
       }));
 });
 
@@ -27,17 +26,17 @@ gulp.task('jscs-reporter', function () {
   return gulp.src([
           // 'server.js',
           // 'client/*.js',
-          // 'server/*.js'
+          // 'server/*.js',
         ])
     .pipe(jscs())
     .pipe(jscs.reporter());
 });
 
-gulp.task('watch', function() {
-  gulp.watch('./*.js', ['jshint','jasmine-test','jscs-reporter']);
+gulp.task('watch', function () {
+  gulp.watch('./*.js', ['jshint', 'jasmine-test', 'jscs-reporter']);
 });
 
-gulp.task('checkAll', ['jshint','jasmine-test', 'jscs-reporter']);
+gulp.task('checkAll', ['jshint', 'jasmine-test', 'jscs-reporter']);
 
 gulp.task('default', ['watch']);
 

@@ -2,7 +2,7 @@
  "browser": true,
  "jquery": true,
  "node": true,
- "camelcase": false,
+ "camelcase": true,
  "eqeqeq": true,
  "indent": 2,
  "latedef": "nofunc",
