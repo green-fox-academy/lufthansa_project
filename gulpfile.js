@@ -1,9 +1,10 @@
 'use strict';
 
-var jshint = require('gulp-jshint');
 var gulp = require('gulp');
 var notify = require('gulp-notify');
 var jasmine = require('gulp-jasmine');
+var jshint = require('gulp-jshint');
+var jscs = require('gulp-jscs');
 
 
 gulp.task('jshint', function() {
@@ -22,10 +23,21 @@ gulp.task('jasmine-test', function () {
     .pipe(jasmine());
 });
 
-gulp.task('watch', function() {
-  gulp.watch('./*.js', ['jshint','jasmine-test']);
+gulp.task('jscs-reporter', function () {
+  return gulp.src([
+          // 'server.js',
+          // 'client/*.js',
+          // 'server/*.js'
+        ])
+    .pipe(jscs())
+    .pipe(jscs.reporter());
 });
 
-gulp.task('checkAll', ['jshint','jasmine-test']);
+gulp.task('watch', function() {
+  gulp.watch('./*.js', ['jshint','jasmine-test','jscs-reporter']);
+});
+
+gulp.task('checkAll', ['jshint','jasmine-test', 'jscs-reporter']);
 
 gulp.task('default', ['watch']);
+
