@@ -1,7 +1,6 @@
 'use strict';
 
 var gulp = require('gulp');
-var notify = require('gulp-notify');
 var jasmine = require('gulp-jasmine');
 var jshint = require('gulp-jshint');
 var jscs = require('gulp-jscs');
@@ -10,16 +9,11 @@ var autoprefixer = require('autoprefixer');
 var cssnext = require('cssnext');
 var precss = require('precss');
 
-
 gulp.task('jshint', function () {
   return gulp.src('./*.js')
     .pipe(jshint('.jshintrc'))
     .pipe(jshint.reporter('jshint-stylish'))
-    .pipe(jshint.reporter('fail'))
-      .pipe(notify({
-        title: 'JSHint',
-        message: 'JSHint Passed. Let it fly!',
-      }));
+    .pipe(jshint.reporter('fail'));
 });
 
 gulp.task('jasmine-test', function () {
@@ -38,11 +32,11 @@ gulp.task('jscs-reporter', function () {
     .pipe(jscs.reporter());
 });
 
-gulp.task('css', function() {
+gulp.task('css', function () {
   var processors = [
-    autoprefixer({browsers: ['last 2 version']}),
+    autoprefixer({ browsers: ['last 2 version'] }),
     cssnext(),
-    precss
+    precss,
   ];
   return gulp.src('./public/style/*.css')
     .pipe(postcss(processors))
