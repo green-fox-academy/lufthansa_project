@@ -24,19 +24,19 @@ gulp.task('jasmine-test', function () {
 
 gulp.task('jscs-reporter', function () {
   return gulp.src([
-          // 'server.js',
-          // 'client/*.js',
-          // 'server/*.js',
+          'server.js',
+          'client/*.js',
+          'client/*.jsx',
+          'server/*.js',
         ])
     .pipe(jscs())
     .pipe(jscs.reporter());
 });
 
 gulp.task('watch', function () {
-  gulp.watch('./*.js', ['jshint', 'jasmine-test', 'jscs-reporter']);
+  gulp.watch(['./*.js', './*.jsx'], ['jshint', 'jasmine-test', 'jscs-reporter']);
 });
 
 gulp.task('checkAll', ['jshint', 'jasmine-test', 'jscs-reporter']);
 
 gulp.task('default', ['watch']);
-
