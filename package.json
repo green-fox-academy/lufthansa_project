@@ -45,6 +45,7 @@
     "jasmine": "^2.4.1",
     "jest-cli": "^0.8.2",
     "jscs": "^2.9.0",
+    "postcss-scss": "^0.1.5",
     "precss": "^1.4.0",
     "react-addons-test-utils": "^0.14.7",
     "supertest": "1.1.0"
