@@ -6,6 +6,7 @@ var jasmine = require('gulp-jasmine');
 var jshint = require('gulp-jshint');
 var jscs = require('gulp-jscs');
 var postcss = require('gulp-postcss');
+var cssnext = require('cssnext');
 
 gulp.task('jshint', function () {
   return gulp.src('./*.js')
@@ -36,7 +37,7 @@ gulp.task('jscs-reporter', function () {
 gulp.task('css', function() {
   var processor = [
     autoprefixer({browsers: ['last 2 version']}),
-    cssnext,
+    cssnext(),
     precss
   ];
   return gulp.src('./public/style/*.css')
