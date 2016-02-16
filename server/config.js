@@ -4,7 +4,7 @@ const ports = {
   SERVER_PORT: process.env.PORT,
   LOCAL_PORT: 3000,
   DATABASE_URL: process.env.DATABASE_URL,
-  LOCAL_DATABASE_PORT : 'postgres://postgres:greenfox@localhost/lufthansa'
+  LOCAL_DATABASE_PORT: 'postgres://postgres:greenfox@localhost/lufthansa',
 };
 
 var PORT_FOR_SERVER = ports.SERVER_PORT || ports.LOCAL_PORT;

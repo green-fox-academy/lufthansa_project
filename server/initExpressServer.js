@@ -1,7 +1,7 @@
 'use strict';
 
-var express = require ('express');
-var bodyParser = require ('body-parser');
+var express = require('express');
+var bodyParser = require('body-parser');
 var DataBaseRequests = require('./dataBaseRequests.js');
 var Controller = require('./controller.js');
 
