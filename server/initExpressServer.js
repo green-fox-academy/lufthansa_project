@@ -2,7 +2,7 @@
 
 var express = require('express');
 var bodyParser = require('body-parser');
-var DataBaseRequests = require('./databaseRequests.js');
+var DataBaseRequests = require('./databaseRequests');
 var Controller = require('./controller.js');
 
 function initExpressServer(dataBaseConnection) {
