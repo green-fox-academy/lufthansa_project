@@ -25,7 +25,7 @@ gulp.task('jscs-reporter', function () {
   return gulp.src([
           'server.js',
           'client/*.js',
-          'client/*.jsx',
+          // 'client/*.jsx',
           'server/*.js',
         ])
     .pipe(jscs())
