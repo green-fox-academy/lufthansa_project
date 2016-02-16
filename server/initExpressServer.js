@@ -1,15 +1,19 @@
 'use strict';
 
-var express = require('express');
-var bodyParser = require('body-parser');
+var express = require ('express');
+var bodyParser = require ('body-parser');
+var DataBaseRequests = require('./dataBaseRequests.js');
+var Controller = require('./controller.js');
 
-function initExpressServer() {
+function initExpressServer(dataBaseConnection) {
   var app = express();
+  var dataBaseRequests = new DataBaseRequests(dataBaseConnection);
+  var controller = new Controller(dataBaseRequests);
 
   app.use(express.static('public'));
   app.use(bodyParser.json());
 
-  app.get('/heartbeat');
+  app.get('/heartbeat', controller.getHeartBeat);
 
   return app;
 }
