@@ -1,6 +1,6 @@
 'use strict';
 
-function DataBaseRequests(query) {
+function dataBaseRequests(query) {
 
   this.heartBeat = function (cb) {
     query('SELECT ok FROM heartbeat', function (err, result) {
@@ -9,4 +9,4 @@ function DataBaseRequests(query) {
   };
 }
 
-module.exports = DataBaseRequests;
+module.exports = dataBaseRequests;
