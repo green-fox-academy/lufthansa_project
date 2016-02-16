@@ -40,6 +40,7 @@
     "babel-preset-react": "^6.5.0",
     "esprima-fb": "^15001.1001.0-dev-harmony-fb",
     "cssnext": "^1.8.4",
+    "postcss-scss": "^0.1.5",
     "gulp-jscs": "^3.0.2",
     "gulp-postcss": "^6.1.0",
     "gulp-sass": "^2.2.0",
