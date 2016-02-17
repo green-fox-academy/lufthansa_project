@@ -1,6 +1,8 @@
 'use strict'
-//require('./style/modules/navbar.css');
 
+require('../style/modules/navbar.css');
+require('../style/modules/container.css');
+require('../style/modules/index.css');
 import React from 'react';
 import {Link} from 'react-router';
 
