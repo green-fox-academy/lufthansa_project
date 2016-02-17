@@ -1,7 +1,7 @@
 'use strict';
 
 var fetchRequest = require('./http-request.js');
-var globalLogLevel = 'warn';
+var globalLogLevel = 'info';
 
 function Logger() {
   var _this = this;
@@ -51,11 +51,3 @@ function Logger() {
 }
 
 module.exports = Logger;
-
-var Logger = require('./front-end-logger.js');
-var logger = new Logger();
-logger.debug();
-logger.info();
-logger.warn();
-logger.error();
-
