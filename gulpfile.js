@@ -24,7 +24,7 @@ gulp.task('jasmine-test', function () {
 gulp.task('jscs-reporter', function () {
   return gulp.src([
           'server.js',
-          'client/*.js',
+          // 'client/*.js',
           // 'client/*.jsx',
           'server/*.js',
         ])
@@ -38,7 +38,7 @@ gulp.task('css', function () {
     cssnext(),
     precss,
   ];
-  return gulp.src('./public/style/*.css')
+  return gulp.src('./style/*.css')
     .pipe(postcss(processors))
     .pipe(gulp.dest('./dest'));
 });

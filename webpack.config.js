@@ -1,9 +1,13 @@
 'use strict';
 
+var autoprefixer = require('autoprefixer');
+var precss = require('precss');
+var cssnext = require('cssnext');
+
 module.exports = {
-  entry: './client/main.js',
+  entry: './client/App.js',
   output: {
-    filename: 'public/bundle.js'
+    filename: 'public/bundle.js',
   },
   module: {
     loaders: [
@@ -12,16 +16,16 @@ module.exports = {
         exclude: /(node_modules|bower_components)/,
         loader: 'babel',
         query: {
-          presets: ['react', 'es2015']
-        }
+          presets: ['react', 'es2015'],
+        },
       },
       {
         test:   /\.css$/,
-        loader: 'style-loader!css-loader!postcss-loader'
-      }
-    ]
+        loader: 'style-loader!css-loader!postcss-loader',
+      },
+    ],
   },
   postcss: function () {
-    return [require('autoprefixer'), require('precss'), require('cssnext')];
-  }
+    return [autoprefixer, precss, cssnext];
+  },
 };
