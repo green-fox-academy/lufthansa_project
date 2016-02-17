@@ -1,7 +1,12 @@
 'use strict';
 
+var autoprefixer = require('autoprefixer');
+var precss = require('precss');
+var cssnext = require('cssnext');
+// var css = require('./public/style/style.css')
+
 module.exports = {
-  entry: './client/main.js',
+  entry: './client/App.js',
   output: {
     filename: 'public/bundle.js'
   },
@@ -22,6 +27,6 @@ module.exports = {
     ]
   },
   postcss: function () {
-    return [require('autoprefixer'), require('precss'), require('cssnext')];
+    return [autoprefixer, precss, cssnext];
   }
 };
