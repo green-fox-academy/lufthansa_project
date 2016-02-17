@@ -1,0 +1,13 @@
+@keyframes animationExample {
+    from {
+        width: 0;
+    }
+    to {
+        width: 100%;
+    }
+}
+
+.animateThis {
+    animation: animationExample 2s;
+    display: flex;
+}

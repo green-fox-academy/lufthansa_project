@@ -1,12 +1,13 @@
-var React = require('react');
+import React from 'react';
+import {Link} from 'react-router';
 
 var Main = React.createClass({
   render: function () {
     return (
       <div className="main-container">
-        <nav className="navbar" role="navigation">
-          <div>PROJECTS</div>
-          <div>ADMIN</div>
+        <nav className="navbar">
+          <div><Link to="projects">PROJECTS</Link></div>
+          <div><Link to="admin">ADMIN</Link></div>
         </nav>
         <div className="container">
           {this.props.children}

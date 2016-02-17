@@ -1,9 +1,9 @@
-var React = require('react');
+import React from 'react';
 
 var Projects = React.createClass({
   render: function(){
     return (
-      <div>PROJECTS</div>
+      <div>PROJECT list</div>
     )
   }
 })
