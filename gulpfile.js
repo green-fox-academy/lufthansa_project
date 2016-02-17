@@ -38,7 +38,7 @@ gulp.task('css', function () {
     cssnext(),
     precss,
   ];
-  return gulp.src('./public/style/*.css')
+  return gulp.src('./style/*.css')
     .pipe(postcss(processors))
     .pipe(gulp.dest('./dest'));
 });

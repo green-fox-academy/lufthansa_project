@@ -1,4 +1,5 @@
 var React = require('react');
+require('./style/modules/navbar.css');
 
 var Main = React.createClass({
   render: function() {
