@@ -9,7 +9,6 @@ var fetchRequest = function (method, url, requestData) {
     },
     body: JSON.stringify({ requestData }),
   });
-  console.log('elkuldtem');
 };
 
 module.exports = fetchRequest;
