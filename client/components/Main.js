@@ -11,8 +11,12 @@ var Main = React.createClass({
     return (
       <div className="main-container">
         <nav className="navbar">
-          <div><Link to="projects">PROJECTS</Link></div>
-          <div><Link to="admin">ADMIN</Link></div>
+          <div>
+            <Link to="projects">PROJECTS</Link>
+          </div>
+          <div>
+            <Link to="admin">ADMIN</Link>
+          </div>
         </nav>
         <div className="container">
           {this.props.children}
