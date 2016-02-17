@@ -24,7 +24,7 @@ gulp.task('jasmine-test', function () {
 gulp.task('jscs-reporter', function () {
   return gulp.src([
           'server.js',
-          'client/*.js',
+          // 'client/*.js',
           // 'client/*.jsx',
           'server/*.js',
         ])
