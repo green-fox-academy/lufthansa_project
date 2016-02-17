@@ -3,7 +3,6 @@
 var autoprefixer = require('autoprefixer');
 var precss = require('precss');
 var cssnext = require('cssnext');
-var css = require('./dest/style.css');
 
 module.exports = {
   entry: './client/App.js',
