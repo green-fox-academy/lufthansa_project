@@ -45,7 +45,7 @@ function Logger() {
 
     if (_this.logLevelList.indexOf(logLevel) >= _this.logLevelList.indexOf(globalLogLevel)) {
       console.log('log: ' + JSON.stringify(logObject));
-      fetchRequest('POST', window.location.origin + '/api/log', logObject);
+      fetchRequest('POST', window.location.origin + '/api/log', logObject, null);
     }
   };
 }

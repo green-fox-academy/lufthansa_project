@@ -1,6 +1,6 @@
 'use strict';
 
-var fetchRequest = function (method, url, requestData) {
+var fetchRequest = function (method, url, requestData, callback) {
   fetch(url, {
     method: method,
     headers: {
@@ -8,6 +8,10 @@ var fetchRequest = function (method, url, requestData) {
       'Content-Type': 'application/json',
     },
     body: JSON.stringify({ requestData }),
+  }).then(function (response) {
+    if (callback) {
+      callback(response);
+    }
   });
 };
 
