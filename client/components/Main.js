@@ -12,10 +12,10 @@ var Main = React.createClass({
       <div className="main-container">
         <nav className="navbar">
           <div>
-            <Link to="projects">PROJECTS</Link>
+           <Link to="projects">PROJECTS</Link>
           </div>
           <div>
-            <Link to="admin">ADMIN</Link>
+           <Link to="admin">ADMIN</Link>
           </div>
         </nav>
         <div className="container">
