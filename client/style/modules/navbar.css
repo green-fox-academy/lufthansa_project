@@ -1,11 +1,50 @@
 .navbar {
+	display: flex;
 	background-color: white;
 	border-bottom: #4A4A4A solid 1px;
+	/**box-shadow: 10px 0px 5px -5px rgba(0,0,0,0.75);**/
 	height: 100px;
 	font-size: 16px;
-	/*background-image: url('./lufi-logo.png');*/
+	background-image: url('lufi-logo.png');
+	background-repeat: no-repeat;
+	background-position: 10px 15px, center;;
+	background-image: url('./lufi-logo.png');
 }
 
- a:link {
+.projects {
+	padding-left: 100px;
+}
+
+.admin {
+	padding-left: 250px;
+}
+
+.admin, .projects {
+	padding-top: 35px;
+}
+
+a:link {
  	color: #4A4A4A;
+ 	text-decoration: none;
  }
+
+a:hover {
+	border-bottom: 2px solid #FDBD01;
+}
+
+a:before {
+	visibility: hidden;
+  	webkit-transform: scaleX(0);
+  	transform: scaleX(0);
+  	webkit-transition: all 0.3s ease-in-out 0s;
+  	transition: all 0.3s ease-in-out 0s;
+}
+
+a:hover:before {
+  visibility: visible;
+  webkit-transform: scaleX(1);
+  transform: scaleX(1);
+}
+
+ 
+
