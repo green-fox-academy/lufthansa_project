@@ -1,6 +1,6 @@
 'use strict';
 
-const ports = {
+var ports = {
   SERVER_PORT: process.env.PORT,
   LOCAL_PORT: 3000,
   DATABASE_URL: process.env.DATABASE_URL,
