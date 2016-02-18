@@ -58,7 +58,8 @@
     "precss": "^1.4.0",
     "react-addons-test-utils": "^0.14.7",
     "style-loader": "^0.13.0",
-    "supertest": "1.1.0"
+    "supertest": "1.1.0",
+    "url-loader": "^0.5.7"
   },
   "jest": {
     "scriptPreprocessor": "<rootDir>/node_modules/babel-jest",
