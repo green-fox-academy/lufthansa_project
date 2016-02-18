@@ -16,12 +16,11 @@ function initExpressServer(dataBaseConnection) {
   app.use(logRequest);
   app.get('/heartbeat', controller.getHeartBeat);
 
-
   function logRequest(req, res, next) {
     var parts = [
       new Date(),
       req.method,
-      req.originalUrl
+      req.originalUrl,
     ];
     logger.log(parts);
     next();
