@@ -1,5 +1,11 @@
-.header {
-	background-color: #EEEEEE;
-	border-bottom: black solid 1px;
-	height: 200px;
+.navbar {
+	background-color: white;
+	border-bottom: #4A4A4A solid 1px;
+	height: 100px;
+	font-size: 16px;
+	/*background-image: url('./lufi-logo.png');*/
 }
+
+ a:link {
+ 	color: #4A4A4A;
+ }

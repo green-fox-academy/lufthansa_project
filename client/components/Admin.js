@@ -3,7 +3,7 @@ import React from 'react';
 var Admin = React.createClass({
   render: function(){
     return (
-      <div>admin form</div>
+      <h3>admin form</h3>
     )
   }
 })
