@@ -5,13 +5,10 @@
 	/**box-shadow: 10px 0px 5px -5px rgba(0,0,0,0.75);**/
 	height: 100px;
 	font-size: 16px;
-<<<<<<< HEAD
 	background-image: url('lufi-logo.png');
 	background-repeat: no-repeat;
 	background-position: 10px 15px, center;;
-=======
-	/*background-image: url('./lufi-logo.png');*/
->>>>>>> 2fea5f2aa8ab1be0344cce80126a0fe208a0ec8d
+	background-image: url('./lufi-logo.png');
 }
 
 .projects {
@@ -28,7 +25,6 @@
 
 a:link {
  	color: #4A4A4A;
-<<<<<<< HEAD
  	text-decoration: none;
  }
 
@@ -49,6 +45,6 @@ a:hover:before {
   webkit-transform: scaleX(1);
   transform: scaleX(1);
 }
-=======
- }
->>>>>>> 2fea5f2aa8ab1be0344cce80126a0fe208a0ec8d
+
+ 
+
