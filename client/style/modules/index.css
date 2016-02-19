@@ -1,6 +1,10 @@
+@import ../config/colors.css;
+@import ../config/font-config.css;
+
 .main-container {
-	font-family: 'Lato', sans-serif;
-	color: #4A4A4A;
+	font-family: $lato;
+	color: $darkgrey;
 	margin: 0;
 	padding-top: 0;
+	background-color: $lightgrey;
 }
