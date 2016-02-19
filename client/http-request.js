@@ -12,6 +12,8 @@ var fetchRequest = function (method, url, requestData, callback) {
     if (callback) {
       callback(response);
     }
+  }).catch(function (err) {
+    console.log(err);
   });
 };
 
