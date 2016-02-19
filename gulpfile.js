@@ -32,6 +32,7 @@ gulp.task('jscs-reporter', function () {
     .pipe(jscs.reporter());
 });
 
+
 gulp.task('watch', function () {
   gulp.watch(['./*.js', './*.jsx'], ['jshint', 'jasmine-test', 'jscs-reporter']);
 });

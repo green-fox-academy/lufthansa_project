@@ -1,10 +1,10 @@
 import React from 'react';
 var fetchRequest = require('../http-request');
-var url = window.location.origin + 'projects'
+var url = window.location.origin + '/projects'
 
 var ProjectList = React.createClass({
   getInitialState: function() {
-    return {projects: []};
+    return {projects: [], name:'', build_status:'', build_time:''};
   },
 
   componentDidMount: function() {
