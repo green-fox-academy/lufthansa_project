@@ -1,12 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import {Router, browserHistory} from 'react-router';
+import {Router, hashHistory} from 'react-router';
 var routes = require('./config/routes');
-require('./style/style.css');
+// require('./style/modules/*.css');
 var Logger = require('./front-end-logger.js');
 
 ReactDOM.render(
-  <Router history={browserHistory}>{routes}</Router>,
+  <Router history={hashHistory}>{routes}</Router>,
   document.getElementById('app')
 )
 
