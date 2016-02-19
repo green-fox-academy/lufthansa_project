@@ -1,15 +1,15 @@
+@import ../config/colors.css;
+@import ../config/font-config.css;
+
 .container {
-	background-color: #EEEEEE;
 	height: 530px;
-	border-top: #4A4A4A solid 1px;
-	/**box-shadow: 0 10px 10px -10px rgba(0, 0, 0, 0.5);**/
 }
 
 h3 {
 	margin: 0;
-	font-size: 36px;
+	font-size: $fontSizeLarge;
 	text-transform: uppercase;
-	font-weight: lighter;
+	font-weight: $fontWeightLight;
 	padding-left: 100px;
 	padding-top: 50px;
 }

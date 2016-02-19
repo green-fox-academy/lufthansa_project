@@ -32,17 +32,6 @@ gulp.task('jscs-reporter', function () {
     .pipe(jscs.reporter());
 });
 
-gulp.task('css', function () {
-  var processors = [
-    autoprefixer({ browsers: ['last 2 version'] }),
-    cssnext(),
-    precss,
-  ];
-  return gulp.src('./style/*.css')
-    .pipe(postcss(processors))
-    .pipe(gulp.dest('./dest'));
-});
-
 gulp.task('watch', function () {
   gulp.watch(['./*.js', './*.jsx'], ['jshint', 'jasmine-test', 'jscs-reporter']);
 });

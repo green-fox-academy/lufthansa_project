@@ -2,7 +2,9 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import {Router, browserHistory} from 'react-router';
 var routes = require('./config/routes');
-require('./style/style.css');
+require('./style/modules/container.css');
+require('./style/modules/index.css');
+require('./style/modules/navbar.css');
 var Logger = require('./front-end-logger.js');
 
 ReactDOM.render(
