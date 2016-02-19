@@ -6,12 +6,12 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import TestUtils from 'react-addons-test-utils';
 
-const Main = require('../client/components/Main.js');
+var Main = require('../client/components/Main.js');
 
 describe('Main', function() {
   it('should exists', function() {
     var renderedComponent = TestUtils.renderIntoDocument(
-      <Main />
+      <Main></Main>
     );
     expect(TestUtils.isCompositeComponent(renderedComponent)).toBeTruthy();
   });
