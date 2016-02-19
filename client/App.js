@@ -10,23 +10,6 @@ ReactDOM.render(
   document.getElementById('app')
 )
 
-function TestDate() {}
-TestDate.prototype.toISOString = function () {
-    return 'evetke';
-  };
-
-function testlogMethod(logLevel, eventName) {
-    console.log(logLevel, eventName);
-  };
-
+log.info('main page load');
 var log = new Logger();
-log.debug("page load");
-log.info("page load");
-log.warn("page load");
-log.error("page load");
 
-var logger = new Logger(TestDate, testlogMethod);
-logger.debug("page load");
-logger.info("page load");
-logger.warn("page load");
-logger.error("page load");

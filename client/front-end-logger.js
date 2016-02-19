@@ -3,7 +3,7 @@
 var fetchRequest = require('./http-request.js');
 var systemLogLevel = 'info';
 
-function Logger(InnerDate, logMethod) {
+function Logger(InnerDate, logMethod, consoleLog, testURL) {
   var _this = this;
 
   this.createLog = function (logLevel, eventName) {
@@ -20,28 +20,30 @@ function Logger(InnerDate, logMethod) {
   this.submitLog = function (logLevel, eventName) {
     if (_this.logLevelList.indexOf(logLevel) >= _this.logLevelList.indexOf(systemLogLevel)) {
       var log = _this.createLog(logLevel, eventName);
-      console.log('log: ' + JSON.stringify(log));
-      fetchRequest('POST', window.location.origin + '/api/log', log, null);
+      consoleLog('log: ' + JSON.stringify(log));
+      var url = testURL || window.location.origin + '/api/log';
+      logMethod('POST', url, log, null);
     }
   };
 
   InnerDate = InnerDate || Date;
-  logMethod = logMethod || this.submitLog;
+  logMethod = logMethod || fetchRequest;
+  consoleLog = consoleLog || console.log.bind(console);
 
   this.debug = function (eventName) {
-    logMethod('debug', eventName);
+    _this.submitLog('debug', eventName);
   };
 
   this.info = function (eventName) {
-    logMethod('info', eventName);
+    _this.submitLog('info', eventName);
   };
 
   this.warn = function (eventName) {
-    logMethod('warn', eventName);
+    _this.submitLog('warn', eventName);
   };
 
   this.error = function (eventName) {
-    logMethod('error', eventName);
+    _this.submitLog('error', eventName);
   };
 
   this.logLevelList = [
