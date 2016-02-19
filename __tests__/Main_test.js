@@ -1,7 +1,6 @@
 'use strict';
 
-jest.dontMock('../client/components/Main')
-
+jest.autoMockOff()
 
 describe('Main', function() {
   var Main = require('../client/components/Main');

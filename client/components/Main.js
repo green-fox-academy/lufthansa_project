@@ -15,7 +15,7 @@ var Main = React.createClass({
             <Link to="projects">PROJECTS</Link>
           </div>
           <div className="admin">
-            <Link to="admin">ADMIN</Link>
+           <Link to="admin">ADMIN</Link>
           </div>
         </nav>
         <div className="container">
