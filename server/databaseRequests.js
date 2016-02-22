@@ -6,6 +6,12 @@ function DataBaseRequests(query) {
       cb(err, result);
     });
   };
+
+  this.getAllProjects = function (cb) {
+    query('SELECT * FROM project', function (err, result) {
+      cb(err, result);
+    });
+  };
 }
 
 module.exports = DataBaseRequests;

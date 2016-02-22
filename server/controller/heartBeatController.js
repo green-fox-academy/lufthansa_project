@@ -1,6 +1,6 @@
 'use strict';
 
-function Controller(query) {
+function HeartBeatController(query) {
   var _this = this;
 
   this.getHeartBeat = function (request, response) {
@@ -17,6 +17,16 @@ function Controller(query) {
     }
   };
 
+  this.getAllProjects = function (request, response) {
+    query.getAllProjects(function (err, result) {
+      if (err) {
+        response.status(500).json({ 'problem with database connection': err });
+      } else {
+        response.status(200).json(result.rows);
+      }
+    });
+  };
+
 }
 
-module.exports = Controller;
+module.exports = HeartBeatController;
