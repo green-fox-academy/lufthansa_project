@@ -23,7 +23,6 @@ gulp.task('jest', function () {
     .pipe(jest());
 });
 
-
 gulp.task('jscs-reporter', function () {
   return gulp.src([
           'server.js',

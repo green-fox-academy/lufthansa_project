@@ -2,7 +2,7 @@
 
 jest.autoMockOff()
 
-describe('Main', function() {
+describe('Main', function () {
   var Main = require('../client/components/Main');
   var TestUtils = require('react-addons-test-utils');
   var ReactDOM = require('react-dom');

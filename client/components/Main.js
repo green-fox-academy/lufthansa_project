@@ -1,8 +1,5 @@
 'use strict'
 
-require('../style/modules/navbar.css');
-require('../style/modules/container.css');
-require('../style/modules/index.css');
 import React from 'react';
 import {Link} from 'react-router';
 
@@ -15,7 +12,7 @@ var Main = React.createClass({
             <Link to="projects">PROJECTS</Link>
           </div>
           <div className="admin">
-           <Link to="admin">ADMIN</Link>
+            <Link to="admin">ADMIN</Link>
           </div>
         </nav>
         <div className="container">
