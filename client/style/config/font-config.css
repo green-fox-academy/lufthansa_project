@@ -1,7 +1,7 @@
-$fontSizeLarge: 36px;
 $fontSize: 16px;
-
+$fontSizeLarge: 36px;
+$fontWeightBold: bold;
+$fontWeightLight: lighter;
 $lato: 'Lato', sans-serif;
 
-$fontWeightLight: lighter;
-$fontWeightBold: bold;
+

@@ -2,9 +2,9 @@
 @import ../config/font-config.css;
 
 .main-container {
-	font-family: $lato;
+	background-color: $lightgrey;
 	color: $darkgrey;
+	font-family: $lato;
 	margin: 0;
 	padding-top: 0;
-	background-color: $lightgrey;
 }

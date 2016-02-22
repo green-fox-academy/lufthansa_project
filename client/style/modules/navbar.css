@@ -2,18 +2,17 @@
 @import ../config/font-config.css;
 
 .navbar {
-	display: flex;
-	justify-content: flex-start;
 	align-items: flex-start;
 	background-color: white;
-	height: 100px;
-	font-size: $fontSize;
 	background-image: url('../config/lufi-logo.png');
 	background-repeat: no-repeat;
 	background-position: 10px 15px, center;
-	padding: 0;
 	box-shadow: 0 10px 10px -11px rgba(0, 0, 0, 0.5);
-
+	display: flex;
+	font-size: $fontSize;
+	height: 100px;
+	justify-content: flex-start;
+	padding: 0;
  }
 
 .admin {
@@ -25,37 +24,38 @@
 }
 
 .admin, .projects {
+	font-weight: $fontWeightBold;
 	padding-top: 35px;
 	position: relative;
-	font-weight: $fontWeightBold;
 }
 
 a:link {
  	color: $darkgrey;
- 	text-decoration: none;
  	display:block;
+ 	text-decoration: none;
 }
 
 a:visited {
-	color: $darkgrey;
 	border-bottom: 2px solid #FDBD01;
+	color: $darkgrey;
 }
 
 a:after {
-    content: '';
-    display: block;
-    margin: auto;
-    height: 2px;
-    width: 0px;
-    background: transparent;
+	background: transparent;
     -moz-transition: width .65s ease, background-color .5s ease;
     -webkit-transition: width .65s ease, background-color .5s ease;
     -ms-transition: width .65s ease, background-color .5s ease;
+    content: '';
+    display: block;
+    height: 2px;
+    margin: auto;
     transition: width .65s ease, background-color .5s ease;
+    width: 0px;
 }
+
 a:hover:after {
-    width: 100%;
     background: #FDBD01;
+    width: 100%;
 }
 
 

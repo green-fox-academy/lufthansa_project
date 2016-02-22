@@ -6,10 +6,54 @@
 }
 
 h3 {
-	margin: 0;
 	font-size: $fontSizeLarge;
-	text-transform: uppercase;
 	font-weight: $fontWeightLight;
-	padding-left: 100px;
+	margin: 0;
+	padding-left: 200px;
 	padding-top: 50px;
+	padding-bottom: 50px;
+	text-transform: uppercase;
+}
+
+.fullTable {
+	font-size: $fontSize;
+    margin-left: 200px;
+    overflow: hidden;
+    table-layout: fixed;
+    width: 800px;
+    word-wrap:break-word;
+}
+
+td {
+	height: 30px;
+}
+
+span {
+	display: block;
+}
+
+.projectName {
+	width: 370px;
+}
+
+.greenBuild {
+	background-color: $green;
+}
+
+.redBuild {
+	background-color: $red;
+}
+
+.greenBuild, .redBuild {
+	border: 1px solid darkgrey;
+	border-radius: 50%;
+	height: 15px;
+	margin-left: 230px;
+	text-align: right;
+	width: 15px;
+}
+
+.buildDate {
+	padding-left: 20px;
+	width: 150px;
 }
