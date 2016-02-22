@@ -1,9 +1,9 @@
 'use strict';
 
 var autoprefixer = require('autoprefixer');
-var precss = require('precss');
 var cssnext = require('cssnext');
 var vars   = require('postcss-simple-vars');
+var precss = require('precss');
 
 module.exports = {
   entry: './client/App.js',

@@ -2,6 +2,7 @@
 
 var gulp = require('gulp');
 var jasmine = require('gulp-jasmine');
+var jest = require('gulp-jest');
 var jshint = require('gulp-jshint');
 var jscs = require('gulp-jscs');
 
@@ -16,6 +17,12 @@ gulp.task('jasmine-test', function () {
   return gulp.src('spec/*.js')
     .pipe(jasmine());
 });
+
+gulp.task('jest', function () {
+  return gulp.src('__test__/*.js')
+    .pipe(jest());
+});
+
 
 gulp.task('jscs-reporter', function () {
   return gulp.src([
@@ -33,6 +40,6 @@ gulp.task('watch', function () {
   gulp.watch(['./*.js', './*.jsx'], ['jshint', 'jasmine-test', 'jscs-reporter']);
 });
 
-gulp.task('checkAll', ['jshint', 'jasmine-test', 'jscs-reporter']);
+gulp.task('checkAll', ['jshint', 'jasmine-test', 'jest', 'jscs-reporter']);
 
 gulp.task('default', ['watch']);

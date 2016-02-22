@@ -23,8 +23,7 @@
     "pg": "4.4.4",
     "react": "^0.14.7",
     "react-dom": "^0.14.7",
-    "react-router": "^2.0.0",
-    "webpack": "^1.12.13"
+    "react-router": "^2.0.0"
   },
   "devDependencies": {
     "autoprefixer": "^6.3.3",
@@ -40,6 +39,7 @@
     "file-loader": "^0.8.5",
     "gulp": "^3.9.1",
     "gulp-jasmine": "^2.2.1",
+    "gulp-jest": "^0.4.0",
     "gulp-jscs": "^3.0.2",
     "gulp-jshint": "^2.0.0",
     "gulp-notify": "^2.2.0",
@@ -61,7 +61,8 @@
     "react-addons-test-utils": "^0.14.7",
     "style-loader": "^0.13.0",
     "supertest": "1.1.0",
-    "url-loader": "^0.5.7"
+    "url-loader": "^0.5.7",
+    "webpack": "^1.12.13"
   },
   "jest": {
     "scriptPreprocessor": "<rootDir>/node_modules/babel-jest",
