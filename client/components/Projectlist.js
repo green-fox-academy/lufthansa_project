@@ -4,7 +4,7 @@ var url = window.location.origin + '/projects'
 
 var ProjectList = React.createClass({
   getInitialState: function() {
-    return {projects: [], name:'', build_status:'', build_time:''};
+    return {projects: [], project_name:'', build_status:'', build_time:''};
   },
 
   componentDidMount: function() {
@@ -12,7 +12,7 @@ var ProjectList = React.createClass({
   },
 
   getItems: function() {
-    fetchRequest('GET', url, {}, this.updateList);
+    fetchRequest('GET', url, null, this.updateList);
   },
 
 updateList: function() {
@@ -20,13 +20,18 @@ updateList: function() {
 },
 
   render: function(response){
-    var listItems = this.state.projects.map(function(item) {
-      return <li key={item.id}> {item.name} {item.build_status} {item.build_time} </li>
+    var rows = this.state.projects.map(function(item) {
+      return
+        <tr key={item.build_id}>
+          <td className="projectName">{item.project_name}</td>
+          <td className="buildStatus">{item.build_status}</td>
+          <td className="buildDate">{item.build_time}</td>
+        </tr>
     });
     return (
-      <ul>
-        {listItems}
-      </ul>
+      <table>
+        {rows}
+      </table>
     )
   }
 })
