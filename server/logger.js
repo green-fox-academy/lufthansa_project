@@ -3,32 +3,36 @@
 var environment = require('./config.js');
 var env = environment.BACKEND_LEVEL;
 
-function Logger() {
-  var _this = this;
+function createLogger() {
 
-  this.submitLog = function (logLevel, eventName) {
+  function submitLog(logLevel, eventName) {
     if (environment.LOG_LEVELS.indexOf(logLevel) >= environment.LOG_LEVELS.indexOf(env)) {
       console.log('log: ' + JSON.stringify(eventName));
     }
-  };
+  }
 
-  this.debug = function (eventName) {
-    _this.submitLog('debug', eventName);
-  };
+  function debug(eventName) {
+    submitLog('debug', eventName);
+  }
 
-  this.info = function (eventName) {
-    _this.submitLog('info', eventName);
-  };
+  function info(eventName) {
+    submitLog('info', eventName);
+  }
 
-  this.warn = function (eventName) {
-    _this.submitLog('warn', eventName);
-  };
+  function warn(eventName) {
+    submitLog('warn', eventName);
+  }
 
-  this.error = function (eventName) {
-    _this.submitLog('error', eventName);
+  function error(eventName) {
+    submitLog('error', eventName);
+  }
+
+  return {
+    debug: debug,
+    info: info,
+    warn: warn,
+    error: error,
   };
 }
 
-var logger = new Logger();
-
-module.exports = logger;
+module.exports = createLogger;
