@@ -1,19 +1,25 @@
 'use strict';
 
 var fetchRequest = function (method, url, requestData, callback) {
-  fetch(url, {
+  var config = {
     method: method,
     headers: {
       'Accept': 'application/json',
       'Content-Type': 'application/json',
-    },
-    body: JSON.stringify({ requestData }),
-  }).then(function (response) {
+    }
+  };
+  if (requestData) {
+    config.body = JSON.stringify(requestData);
+  }
+  fetch(url, config).then(function (response) {
+    console.log(response);
+    return response.json();
+  }).then(function (json) {
     if (callback) {
-      callback(response);
+      callback(json);
     }
   }).catch(function (err) {
-    console.log(err);
+    console.log(err.stack);
   });
 };
 

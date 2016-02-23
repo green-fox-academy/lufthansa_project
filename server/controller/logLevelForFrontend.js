@@ -9,9 +9,9 @@ function LogLevelForFrontend() {
   };
 
   this.frontendLogRequest = function (req, res) {
-    var log = req.body.requestData;
+    var log = req.body;
     console.log(log);
-    res.json('Log recieved');
+    res.json({ Status: 'OK' });
   };
 
 }
