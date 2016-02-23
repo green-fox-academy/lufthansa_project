@@ -30,7 +30,9 @@ updateList: function() {
     });
     return (
       <table>
-        {rows}
+        <tbody>
+          {rows}
+        </tbody>
       </table>
     )
   }
