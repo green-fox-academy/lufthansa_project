@@ -12,7 +12,7 @@ var ProjectList = React.createClass({
   },
 
   getItems: function() {
-    fetchRequest('GET', url, {}, this.updateList);
+    // fetchRequest('GET', url, {}, this.updateList);
   },
 
 updateList: function() {
