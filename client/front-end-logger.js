@@ -1,7 +1,7 @@
 'use strict';
 
 var fetchRequest = require('./http-request.js');
-var systemLogLevel = 'info';
+var config = require('./config.js');
 
 function Logger(InnerDate, logMethod, consoleLog, testURL) {
   var _this = this;
@@ -18,7 +18,7 @@ function Logger(InnerDate, logMethod, consoleLog, testURL) {
   };
 
   this.submitLog = function (logLevel, eventName) {
-    if (_this.logLevelList.indexOf(logLevel) >= _this.logLevelList.indexOf(systemLogLevel)) {
+    if (_this.logLevelList.indexOf(logLevel) >= _this.logLevelList.indexOf(config.systemLogLevel)) {
       var log = _this.createLog(logLevel, eventName);
       consoleLog('log: ' + JSON.stringify(log));
       var url = testURL || window.location.origin + '/api/log';

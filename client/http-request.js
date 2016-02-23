@@ -12,7 +12,6 @@ var fetchRequest = function (method, url, requestData, callback) {
     config.body = JSON.stringify(requestData);
   }
   fetch(url, config).then(function (response) {
-    console.log(response);
     return response.json();
   }).then(function (json) {
     if (callback) {

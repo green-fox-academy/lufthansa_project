@@ -17,15 +17,19 @@ describe('Main', function () {
   });
 
   it('should exists', function() {
-    var renderedComponent = TestUtils.renderIntoDocument(
+    var renderComponent = TestUtils.renderIntoDocument(
       <Main />
     );
-    expect(TestUtils.isCompositeComponent(renderedComponent)).toBeTruthy();
-    // 
-    // var mainContainer = TestUtils.findRenderedDOMComponentWithClass(renderedComponent, 'main-container');
-    //
-    // var h1 = ReactDOM.findDOMNode(renderedh1);
-    // expect(mainContainer.type).toBe('div');
+    expect(TestUtils.isCompositeComponent(renderComponent)).toBeTruthy();
+
+    // var mainText = ReactDOM.findDOMNode(renderComponent).textContent
+    // console.log(mainText);
+
+    var mainContainer = TestUtils.findRenderedDOMComponentWithClass(renderComponent, 'main-container');
+
+    var main_container = ReactDOM.findDOMNode(mainContainer);
+    console.log(main_container.getDOMNode());
+    expect(main_container.type).toBe('div');
   });
 
 });
