@@ -9,7 +9,6 @@ function DataBaseRequests(query) {
 
   this.getAllProjects = function (cb) {
     query('SELECT * FROM projects INNER JOIN builds ON (projects.project_id = builds.project_id)', function (err, result) {
-      console.log(result.rows[0]);
       cb(err, result);
     });
   };
