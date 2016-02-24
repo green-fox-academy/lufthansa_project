@@ -17,7 +17,7 @@ function DataBaseRequests(query) {
     query('SELECT * FROM projects WHERE project_id = $1', [id], function (err, result) {
       cb(err, result);
     });
-  }
+  };
 }
 
 module.exports = DataBaseRequests;
