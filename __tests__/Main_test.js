@@ -31,8 +31,18 @@ describe('Main', function () {
   });
 
   it('contains links', function() {
-    var links =  TestUtils.scryRenderedDOMComponentsWithTag(renderComponent, 'Link');
-    console.log(links);
-    // expect(links.length).toBe(2);
-  })
+    renderComponent = TestUtils.renderIntoDocument(
+      <Main />
+    );
+    var links =  TestUtils.scryRenderedDOMComponentsWithTag(renderComponent, 'a');
+    expect(links.length).toBe(2);
+  });
+
+  it('contains links', function() {
+    renderComponent = TestUtils.renderIntoDocument(
+      <Main />
+    );
+    var links =  TestUtils.scryRenderedDOMComponentsWithTag(renderComponent, 'a');
+    expect(links.length).toBe(2);
+  });
 });
