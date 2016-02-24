@@ -4,12 +4,14 @@ var fetchRequest = require('../http-request');
 var url = window.location.origin + '/api/projects';
 
 var ProjectList = React.createClass({
+  
   getInitialState: function() {
     return {projects: [], project_name:'', build_status:'', build_time:''};
   },
 
   componentDidMount: function() {
-    this.getItems();
+    var _this = this;
+    setInterval(function(){ _this.getItems(); }, 10000);
   },
 
   getItems: function() {
