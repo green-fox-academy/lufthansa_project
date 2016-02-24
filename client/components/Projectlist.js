@@ -1,6 +1,7 @@
 import React from 'react';
 var fetchRequest = require('../http-request');
-var url = window.location.origin + '/projects'
+
+var url = window.location.origin + '/api/projects';
 
 var ProjectList = React.createClass({
   getInitialState: function() {
@@ -15,11 +16,12 @@ var ProjectList = React.createClass({
     fetchRequest('GET', url, null, this.updateList);
   },
 
-updateList: function() {
-  this.setState({projects: JSON.parse(response)})
-},
+  updateList: function(response) {
+    this.setState({projects: response})
+    console.log(response);
+  },
 
-  render: function(response){
+  render: function() {
     var rows = this.state.projects.map(function(item) {
       return
         <tr key={item.build_id}>
@@ -36,6 +38,6 @@ updateList: function() {
       </table>
     )
   }
-})
+});
 
 module.exports = ProjectList;
