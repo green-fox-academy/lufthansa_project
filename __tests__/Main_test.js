@@ -8,6 +8,8 @@ var ReactDOM;
 var React;
 
 describe('Main', function () {
+  var renderComponent;
+
 
   beforeEach(function () {
     Main = require('../client/components/Main');
@@ -17,19 +19,20 @@ describe('Main', function () {
   });
 
   it('should exists', function() {
-    var renderComponent = TestUtils.renderIntoDocument(
+    renderComponent = TestUtils.renderIntoDocument(
       <Main />
     );
     expect(TestUtils.isCompositeComponent(renderComponent)).toBeTruthy();
 
-    // var mainText = ReactDOM.findDOMNode(renderComponent).textContent
-    // console.log(mainText);
+    var renderMainContainer = TestUtils.findRenderedDOMComponentWithClass(renderComponent, 'main-container');
 
-    var mainContainer = TestUtils.findRenderedDOMComponentWithClass(renderComponent, 'main-container');
-
-    var main_container = ReactDOM.findDOMNode(mainContainer);
-    console.log(main_container.getDOMNode());
-    expect(main_container.type).toBe('div');
+    var mainContainer = ReactDOM.findDOMNode(renderMainContainer);
+    expect(mainContainer.className).toEqual('main-container');
   });
 
+  it('contains links', function() {
+    var links =  TestUtils.scryRenderedDOMComponentsWithTag(renderComponent, 'Link');
+    console.log(links);
+    // expect(links.length).toBe(2);
+  })
 });
