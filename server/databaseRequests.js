@@ -12,6 +12,12 @@ function DataBaseRequests(query) {
       cb(err, result);
     });
   };
+
+  this.getOneProject = function (id, cb) {
+    query('SELECT * FROM projects WHERE project_id = $1', [id], function (err, result) {
+      cb(err, result);
+    });
+  }
 }
 
 module.exports = DataBaseRequests;
