@@ -5,12 +5,14 @@ var bodyParser = require('body-parser');
 var DataBaseRequests = require('./databaseRequests');
 var HeartBeatController = require('./controller/heartBeatController.js');
 var logLevelForFrontend = require('./controller/logLevelForFrontend.js');
+var GetAllProjectsController = require('./controller/getAllProjectsController.js');
 var logger = require('./logger.js')();
 
 function initExpressServer(dataBaseConnection) {
   var app = express();
   var dataBaseRequests = new DataBaseRequests(dataBaseConnection);
   var heartBeatController = new HeartBeatController(dataBaseRequests);
+  var getAllProjectsController = new GetAllProjectsController(dataBaseRequests);
 
   app.use(express.static('public'));
   app.use(bodyParser.json());
@@ -18,7 +20,7 @@ function initExpressServer(dataBaseConnection) {
   app.get('/heartbeat', heartBeatController.getHeartBeat);
   app.get('/loglevel', logLevelForFrontend.getLevel);
   app.post('/api/log', logLevelForFrontend.frontendLogRequest);
-  app.get('/api/projects', heartBeatController.getAllProjects);
+  app.get('/api/projects', getAllProjectsController.getAllProjects);
 
   function logRequest(req, res, next) {
     var parts = {
