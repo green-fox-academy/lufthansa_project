@@ -29,18 +29,18 @@
 	position: relative;
 }
 
-a:link {
+.navbar a:link {
  	color: $darkgrey;
  	display:block;
  	text-decoration: none;
 }
 
-a:visited {
+.navbar a:visited {
 	border-bottom: 2px solid #FDBD01;
 	color: $darkgrey;
 }
 
-a:after {
+.navbar a:after {
 	background: transparent;
     -moz-transition: width .65s ease, background-color .5s ease;
     -webkit-transition: width .65s ease, background-color .5s ease;
@@ -53,7 +53,7 @@ a:after {
     width: 0px;
 }
 
-a:hover:after {
+.navbar a:hover:after {
     background: #FDBD01;
     width: 100%;
 }
