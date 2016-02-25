@@ -20,7 +20,13 @@ function DataBaseRequests(query) {
   };
 
   this.changeVisibility = function (id, cb) {
-    query('UPDATE projects SET is_visible = false WHERE project_id= $1', [id], function (err, result) {
+    query('UPDATE projects SET project_is_visible = false WHERE project_id= $1', [id], function (err, result) {
+      cb(err, result);
+    });
+  };
+
+  this.updateProjectProperties = function (id, cb) {
+    query('UPDATE projects SET project_name=$1, url=$2 WHERE project_id= $3', [project_name, url, id], function (err, result) {
       cb(err, result);
     });
   };
