@@ -7,6 +7,7 @@ var HeartBeatController = require('./controller/heartBeatController.js');
 var logLevelForFrontend = require('./controller/logLevelForFrontend.js');
 var GetAllProjectsController = require('./controller/getAllProjectsController.js');
 var GetOneProjectController = require('./controller/getOneProjectController.js');
+var ChangeVisibilityController = require('./controller/changeVisibilityController.js');
 var logger = require('./logger.js')();
 
 function initExpressServer(dataBaseConnection) {
@@ -15,6 +16,7 @@ function initExpressServer(dataBaseConnection) {
   var heartBeatController = new HeartBeatController(dataBaseRequests);
   var getAllProjectsController = new GetAllProjectsController(dataBaseRequests);
   var getOneProjectController = new GetOneProjectController(dataBaseRequests);
+  var changeVisibilityController = new ChangeVisibilityController(dataBaseRequests);
 
   app.use(express.static('public'));
   app.use(bodyParser.json());
@@ -24,6 +26,7 @@ function initExpressServer(dataBaseConnection) {
   app.post('/api/log', logLevelForFrontend.frontendLogRequest);
   app.get('/api/projects', getAllProjectsController.getAllProjects);
   app.get('/#/project/:id', getOneProjectController.getOneProject);
+  app.put('/project/:id', changeVisibilityController.changeVisibility);
 
   function logRequest(req, res, next) {
     var parts = {
