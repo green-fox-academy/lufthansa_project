@@ -23,7 +23,7 @@ function initExpressServer(dataBaseConnection) {
   app.get('/loglevel', logLevelForFrontend.getLevel);
   app.post('/api/log', logLevelForFrontend.frontendLogRequest);
   app.get('/api/projects', getAllProjectsController.getAllProjects);
-  app.get('/#/project/:id', getOneProjectController.getOneProject);
+  app.get('/project/:id', getOneProjectController.getOneProject);
 
   function logRequest(req, res, next) {
     var parts = {

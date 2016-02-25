@@ -3,28 +3,36 @@
 function GetOneProjectController(query) {
 
 	this.getOneProject = function (request, response) {
-		query.getOneProject(function (err, result) {
+		query.getOneProject(request.params.id, function (err, result) {
 			if (err) {
 				response.status(500).json({ 'problem with database connection': err });
 			} else {
-				var queryResult = [
-				{
-					name: result.rows[0].project_name,
-					id: result.rows[0].project_id,
-					lastBuild: {
-						status: result.rows[0].build_status,
-						date: result.rows[0].build_date,
-						coverage: {
-							totalLines: result.rows[0].build_totallines,
-							actualLines: result.rows[0].build_actuallines,
-						},
-					}
-				}
-				]
-				response.status(200).json(queryResult);
-			}
-		});
-	};
+				var resultArray = [];
+        result.rows.forEach(function (build) {
+        var buildToObject = {
+          projects: [
+            {
+              name: build.project_name,
+              id: build.project_id,
+              lastBuild: {
+                status: build.build_status,
+                time: build.build_date,
+                coverage: {
+                  totalLines: build.build_totallines,
+                  actualLines: build.build_actuallines,
+                },
+              },
+            },
+          ],
+          status: build.build_status,
+        };
+
+        resultArray.push(buildToObject);
+        });
+        response.status(200).json(resultArray);
+      }
+    });
+  };
 }
 
 module.exports = GetOneProjectController;

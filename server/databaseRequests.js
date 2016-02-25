@@ -14,7 +14,7 @@ function DataBaseRequests(query) {
   };
 
   this.getOneProject = function (id, cb) {
-    query('SELECT * FROM projects WHERE project_id = $1', [id], function (err, result) {
+    query('SELECT * FROM projects INNER JOIN builds ON (projects.project_id = builds.project_id) WHERE builds.project_id = $1', [id], function (err, result) {
       cb(err, result);
     });
   };
