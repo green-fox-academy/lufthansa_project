@@ -8,13 +8,13 @@ function DataBaseRequests(query) {
   };
 
   this.getAllProjects = function (cb) {
-    query('SELECT * FROM projects INNER JOIN builds ON (projects.project_id = builds.project_id) WHERE is_visible = TRUE', function (err, result) {
+    query('SELECT * FROM projects INNER JOIN builds ON (projects.project_id = builds.project_id) WHERE project_is_visible = TRUE', function (err, result) {
       cb(err, result);
     });
   };
 
   this.getOneProject = function (id, cb) {
-    query('SELECT * FROM projects WHERE project_id = $1', [id], function (err, result) {
+    query('SELECT * FROM projects INNER JOIN builds ON (projects.project_id = builds.project_id) WHERE builds.project_id = $1', [id], function (err, result) {
       cb(err, result);
     });
   };

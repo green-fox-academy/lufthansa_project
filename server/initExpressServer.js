@@ -27,9 +27,10 @@ function initExpressServer(dataBaseConnection) {
   app.get('/loglevel', logLevelForFrontend.getLevel);
   app.post('/api/log', logLevelForFrontend.frontendLogRequest);
   app.get('/api/projects', getAllProjectsController.getAllProjects);
-  app.get('/#/project/:id', getOneProjectController.getOneProject);
+  app.get('/project/:id', getOneProjectController.getOneProject);
   app.put('/api/project/:id', changeVisibilityController.changeVisibility);
   app.put('/api/project/update/:id', updateProjectPropertiesController.updateProjectProperties);
+
 
   function logRequest(req, res, next) {
     var parts = {
@@ -40,7 +41,7 @@ function initExpressServer(dataBaseConnection) {
 
     logger.info(parts);
     next();
-  }
+  };
 
   return app;
 }
