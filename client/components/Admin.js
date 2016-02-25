@@ -27,7 +27,7 @@ var Admin = React.createClass({
 
   updateList: function (response) {
     // this.setState( projectList: response });
-    console.log(this.state.name + '         ' + this.state.path);
+    console.log(this.state.name + '   ' + this.state.path);
   },
 
   handleNameChange: function (event) {
@@ -41,6 +41,11 @@ var Admin = React.createClass({
   handleSubmit: function (event) {
     event.preventDefault();
     console.log(this.state.name + ' ' + this.state.path);
+    var updatedProjectlist = this.state.projectList.concat({
+      name: this.state.name,
+      path: this.state.path,
+    });
+    this.setState({ projectList: updatedProjectlist });
 
     // var dataToObject = {
     //   name: this.state.name,
@@ -57,8 +62,8 @@ var Admin = React.createClass({
         <div>
           <h3>Admin form</h3>
           <form onSubmit={this.handleSubmit}>
-            <input type="text" onChange={this.handleNameChange} placeholder="Project name" />
-            <input type="text" onChange={this.handlePathChange} placeholder="Path" />
+            <input type="text" onChange={this.handleNameChange} value={this.state.name} placeholder="Project name" />
+            <input type="text" onChange={this.handlePathChange} value={this.state.path} placeholder="Path" />
             <button>ADD</button>
           </form>
           <ProjectTable projectList={this.state.projectList}/>
@@ -69,25 +74,26 @@ var Admin = React.createClass({
 
 var ProjectTable = React.createClass({
   renderName: 'projectTable',
-  render: function (response) {
-  var createProjectLine = function (project) {
-    return (
-      <tr key={project.name}>
-        <td>{project.name}</td>
-        <td>{project.path}</td>
-        <td><button>EDIT</button></td>
-        <td><button>DELETE</button></td>
-      </tr>
-    )
-  }
 
-  return (
-    <table>
-      <tbody>
-        {this.props.projectList.map(createProjectLine)}
-      </tbody>
-    </table>
-    );
+  render: function (response) {
+    var createProjectLine = function (project) {
+      return (
+        <tr key={project.name}>
+          <td>{project.name}</td>
+          <td>{project.path}</td>
+          <td><button>EDIT</button></td>
+          <td><button>DELETE</button></td>
+        </tr>
+      )
+    }
+
+    return (
+      <table>
+        <tbody>
+          {this.props.projectList.map(createProjectLine)}
+        </tbody>
+      </table>
+      );
   }
 });
 
