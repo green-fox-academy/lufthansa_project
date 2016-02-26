@@ -41,7 +41,7 @@ function initExpressServer(dataBaseConnection) {
 
     logger.info(parts);
     next();
-  };
+  }
 
   return app;
 }
