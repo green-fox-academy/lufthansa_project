@@ -1,6 +1,6 @@
 'use strict';
 
-var resposeTemplate = require('../templateForRequest.js');
+var resposeTemplate = require('../templateForResponse.js');
 
 function GetAllProjectsController(query) {
 
