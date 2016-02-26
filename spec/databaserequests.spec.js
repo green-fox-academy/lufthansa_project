@@ -2,7 +2,7 @@
 
 var DataBaseRequests = require('../server/databaseRequests');
 
-describe('meal', function() {
+describe('heartbeat', function() {
   it('should give back one item', function() {
         
         function query(query) {
