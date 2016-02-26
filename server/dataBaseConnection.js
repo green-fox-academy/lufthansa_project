@@ -9,7 +9,6 @@ function query(query, id, cb) {
     if (err) {
       cb(err);
     }
-
     if (cb) {
       client.query(query, id, function (err, result) {
         done();

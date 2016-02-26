@@ -10,10 +10,11 @@ function GetOneProjectController(query) {
 				var resultArray = [];
         result.rows.forEach(function (build) {
         var buildToObject = {
-          projects: [
+         projects: [
             {
               name: build.project_name,
               id: build.project_id,
+              projectUrl: build.project_url,
               lastBuild: {
                 status: build.build_status,
                 time: build.build_date,
@@ -24,9 +25,8 @@ function GetOneProjectController(query) {
               },
             },
           ],
-          status: build.build_status,
+          status: 'ok',
         };
-
         resultArray.push(buildToObject);
         });
         response.status(200).json(resultArray);

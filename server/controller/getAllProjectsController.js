@@ -7,6 +7,7 @@ function GetAllProjectsController(query) {
       if (err) {
         response.status(500).json({ 'problem with database connection': err });
       } else {
+        console.log(result.rows[0]);
         var resultArray = [];
         result.rows.forEach(function (build) {
         var buildToObject = {
@@ -14,6 +15,7 @@ function GetAllProjectsController(query) {
             {
               name: build.project_name,
               id: build.project_id,
+              projectUrl: build.project_url,
               lastBuild: {
                 status: build.build_status,
                 time: build.build_date,
@@ -24,7 +26,7 @@ function GetAllProjectsController(query) {
               },
             },
           ],
-          status: build.build_status,
+          status: 'ok',
         };
 
         resultArray.push(buildToObject);
