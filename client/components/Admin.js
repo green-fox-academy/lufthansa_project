@@ -2,7 +2,9 @@
 
 import React from 'react';
 var fetchRequest = require('../http-request');
+var ProjectTable = require('./ProjectTable');
 var url = window.location.origin + '/api/projects';
+
 
 var Admin = React.createClass({
   renderName: 'Admin',
@@ -55,33 +57,6 @@ var Admin = React.createClass({
             <button>ADD</button>
           </form>
         </div>
-    );
-  }
-});
-
-
-var ProjectTable = React.createClass({
-  renderName: 'projectTable',
-
-  render: function (response) {
-    var createProjectLine = function (project) {
-      var projectDetails = project.projects[0];
-      return (
-        <tr key={projectDetails.id}>
-          <td>{projectDetails.name}</td>
-          <td>{projectDetails.projectUrl}</td>
-          <td><button>EDIT</button></td>
-          <td><button>DELETE</button></td>
-        </tr>
-      )
-    }
-
-    return (
-      <table>
-        <tbody>
-          {this.props.projectList.map(createProjectLine)}
-        </tbody>
-      </table>
     );
   }
 });
