@@ -1,6 +1,7 @@
 'use strict';
 
 var DataBaseRequests = require('../server/databaseRequests');
+var DataBaseRequestsForHeartbeat = require('../server/DataBaseRequestsForHeartbeat');
 
 describe('heartbeat', function() {
   it('should give back one item', function() {
@@ -9,8 +10,8 @@ describe('heartbeat', function() {
          expect(query).toEqual('SELECT ok FROM heartbeat');
         }
         
-        var dataBaseRequests = new DataBaseRequests(query);
-        dataBaseRequests.heartBeat();
+        var dataBaseRequestsForHeartbeat = new DataBaseRequestsForHeartbeat(query);
+        dataBaseRequestsForHeartbeat.heartBeat();
     });
 });
 
