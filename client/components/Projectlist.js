@@ -5,9 +5,11 @@ var SetIntervalMixin = require('../mixins/setinterval');
 var url = window.location.origin + '/api/projects';
 
 var ProjectList = React.createClass({
+  renderName: 'ProjectList',
+
   mixins: [SetIntervalMixin],
   getInitialState: function() {
-    return {projects: [], project_name:'', build_status:'', build_time:''};
+    return {projectBuildList: [], name:'', status:'', time:''};
   },
 
   componentDidMount: function() {
@@ -20,21 +22,22 @@ var ProjectList = React.createClass({
   },
 
   updateList: function(response) {
-    this.setState({projects: response})
+    this.setState({projectBuildList: response})
     console.log(response);
   },
 
   render: function() {
-    var rows = this.state.projects.map(function(item) {
+    var rows = this.state.projectBuildList.map(function(build) {
+      var buildDetails = build.projects[0];
       return
-        <tr key={item.build_id}>
-          <td className="projectName">{item.project_name}</td>
-          <td className="buildStatus">{item.build_status}</td>
-          <td className="buildDate">{item.build_time}</td>
+        <tr key={buildDetails.buildId}>
+          <td className="projectName">{buildDetails.name}</td>
+          <td className="buildStatus">{buildDetails.lastBuild.status}</td>
+          <td className="buildDate">{buildDetails.lastBuild.time}</td>
         </tr>
     });
     return (
-      <table>
+      <table className="fullTable">
         <tbody>
           {rows}
         </tbody>
