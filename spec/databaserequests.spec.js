@@ -1,7 +1,7 @@
 'use strict';
 
 var DataBaseRequests = require('../server/databaseRequests');
-var DataBaseRequestsForHeartbeat = require('../server/DataBaseRequestsForHeartbeat.js');
+var DataBaseRequestsForHeartbeat = require('../server/DataBaseRequestsForHeartbeat');
 
 describe('heartbeat', function() {
   it('should give back one item', function() {
