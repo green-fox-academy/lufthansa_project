@@ -74,5 +74,5 @@
     "safeContextKeyword": "_this",
     "validateQuoteMarks": { "mark": "'", "escape": true, "ignoreJSX": true },
     "validateIndentation": 2,
-    "maximumLineLength": 600
+    "maximumLineLength": 1000
 }
