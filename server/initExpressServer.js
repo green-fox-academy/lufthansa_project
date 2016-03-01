@@ -3,7 +3,6 @@
 var express = require('express');
 var bodyParser = require('body-parser');
 var DataBaseRequests = require('./databaseRequests');
-var DataBaseRequestsForHeartbeat = require('./DataBaseRequestsForHeartbeat');
 var HeartBeatController = require('./controller/heartBeatController.js');
 var logLevelForFrontend = require('./controller/logLevelForFrontend.js');
 var GetAllProjectsController = require('./controller/getAllProjectsController.js');
@@ -15,8 +14,7 @@ var logger = require('./logger.js')();
 function initExpressServer(dataBaseConnection) {
   var app = express();
   var dataBaseRequests = new DataBaseRequests(dataBaseConnection);
-  var dataBaseRequestsForHeartbeat = new DataBaseRequestsForHeartbeat(dataBaseConnection);
-  var heartBeatController = new HeartBeatController(dataBaseRequestsForHeartbeat);
+  var heartBeatController = new HeartBeatController(dataBaseRequests);
   var getAllProjectsController = new GetAllProjectsController(dataBaseRequests);
   var getOneProjectController = new GetOneProjectController(dataBaseRequests);
   var changeVisibilityController = new ChangeVisibilityController(dataBaseRequests);
