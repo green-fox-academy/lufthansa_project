@@ -30,6 +30,13 @@ function DataBaseRequests(query) {
       cb(err, result);
     });
   };
+
+  this.addProject = function (projectDetails, cb) {
+    query('INSERT INTO projects (project_name, project_url) VALUES ($1, $2)', [projectDetails.name, projectDetails.projectUrl], function (err, result) {
+      console.log(result);
+      cb(err, result);
+    });
+  };
 }
 
 module.exports = DataBaseRequests;
