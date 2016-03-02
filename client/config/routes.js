@@ -11,7 +11,7 @@ module.exports = (
   <Route path ="/" component={Main}>
     <Route path="admin" component={Admin} />
     <Route path="projects" component={Projects} />
-    <Route path="project" component={Project} />
+    <Route path="project/:id" component={Project} />
     <IndexRoute component={Projects} />
   </Route>
 );
