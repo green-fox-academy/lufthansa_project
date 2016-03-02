@@ -11,11 +11,7 @@ var ProjectList = React.createClass({
       var buildDetails = build.projects[0];
       return (<tr key={buildDetails.buildId}>
           <td className="projectName">{buildDetails.name}</td>
-          if ({buildDetails.lastBuild.status}) === True {
-            <td className="greenBuild"><div></div></td>
-          } else {
-            <td className="redBuild"><div></div></td>
-          };
+            <td>{buildDetails.lastBuild.status === true ? <div className="greenBuild"></div> : <div className="redBuild"></div>}</td>
           <td className="buildDate">{buildDetails.lastBuild.time}</td>
         </tr>);
     };
