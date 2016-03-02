@@ -30,6 +30,13 @@ function DataBaseRequests(query) {
       cb(err, result);
     });
   };
+
+  this.getAllProjectNames = function (cb) {
+    query('SELECT project_name, project_is_visible FROM projects', function (err, result) {
+      cb(err, result);
+    });
+  };
+
 }
 
 module.exports = DataBaseRequests;

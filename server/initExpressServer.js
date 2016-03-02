@@ -8,6 +8,7 @@ var logLevelForFrontend = require('./controller/logLevelForFrontend.js');
 var GetAllProjectsController = require('./controller/getAllProjectsController.js');
 var GetOneProjectController = require('./controller/getOneProjectController.js');
 var ChangeVisibilityController = require('./controller/changeVisibilityController.js');
+var AggregationController = require('./controller/aggregationController.js');
 var UpdateProjectPropertiesController = require('./controller/updateProjectPropertiesController');
 var logger = require('./logger.js')();
 
@@ -18,6 +19,7 @@ function initExpressServer(dataBaseConnection) {
   var getAllProjectsController = new GetAllProjectsController(dataBaseRequests);
   var getOneProjectController = new GetOneProjectController(dataBaseRequests);
   var changeVisibilityController = new ChangeVisibilityController(dataBaseRequests);
+  var aggregationController = new AggregationController(dataBaseRequests);
   var updateProjectPropertiesController = new UpdateProjectPropertiesController(dataBaseRequests);
 
   app.use(express.static('public'));
@@ -30,6 +32,7 @@ function initExpressServer(dataBaseConnection) {
   app.get('/project/:id', getOneProjectController.getOneProject);
   app.put('/api/project/:id', changeVisibilityController.changeVisibility);
   app.put('/api/project/update/:id', updateProjectPropertiesController.updateProjectProperties);
+  app.get('/api/aggregation', aggregationController.aggregate);
 
 
   function logRequest(req, res, next) {
@@ -41,7 +44,7 @@ function initExpressServer(dataBaseConnection) {
 
     logger.info(parts);
     next();
-  };
+  }
 
   return app;
 }
