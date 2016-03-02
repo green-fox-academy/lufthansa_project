@@ -3,7 +3,7 @@
 import React from 'react';
 require('../style/modules/container.css');
 var ProjectTable = React.createClass({
-  renderName: 'projectTable',
+  renderName: 'ProjectTable',
 
   render: function (response) {
     var createProjectLine = function (project) {
