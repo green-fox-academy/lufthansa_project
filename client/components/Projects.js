@@ -17,6 +17,7 @@ var Projects = React.createClass({
 
   componentDidMount: function() {
     var _this = this;
+    this.getItems();
     this.setInterval(function(){ _this.getItems(); }, 10000);
   },
 
