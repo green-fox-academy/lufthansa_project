@@ -34,7 +34,6 @@ function initExpressServer(dataBaseConnection) {
   app.put('/api/project/:id', changeVisibilityController.changeVisibility);
   app.put('/api/project/update/:id', updateProjectPropertiesController.updateProjectProperties);
 
-
   function logRequest(req, res, next) {
     var parts = {
       date: new Date(),
@@ -44,7 +43,7 @@ function initExpressServer(dataBaseConnection) {
 
     logger.info(parts);
     next();
-  };
+  }
 
   return app;
 }
