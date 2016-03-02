@@ -45,9 +45,6 @@ td {
 	padding: 1px 1px 1px 5px;
 }
 
-span {
-	display: block;
-}
 
 .projectName {
 	width: 250px;
@@ -57,7 +54,10 @@ span {
 	width: 250px;
 }
 
-/*.greenBuild {
+div .greenBuild, .redBuild {
+	display: block;
+}
+.greenBuild {
 	background-color: $green;
 }
 
@@ -72,7 +72,7 @@ span {
 	margin-left: 230px;
 	text-align: right;
 	width: 15px;
-}*/
+}
 
 .buildDate {
 	padding-left: 20px;

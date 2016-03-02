@@ -39,12 +39,11 @@ var Admin = React.createClass({
 
   handleSubmit: function (event) {
     event.preventDefault();
-
-    var updatedProjectlist = this.state.projectList.concat({
-      name: this.state.name,
-      path: this.state.path,
-    });
-    this.setState({ projectList: updatedProjectlist });
+    var projectDetails = {
+      'name': this.state.name,
+      'projectUrl': this.state.path
+    };
+    fetchRequest('POST', url, projectDetails, this.getProjectList);
   },
 
   render: function () {

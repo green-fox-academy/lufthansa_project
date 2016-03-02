@@ -6,6 +6,7 @@ var DataBaseRequests = require('./databaseRequests');
 var HeartBeatController = require('./controller/heartBeatController.js');
 var logLevelForFrontend = require('./controller/logLevelForFrontend.js');
 var GetAllProjectsController = require('./controller/getAllProjectsController.js');
+var AddProjectController = require('./controller/AddProjectController.js');
 var GetOneProjectController = require('./controller/getOneProjectController.js');
 var ChangeVisibilityController = require('./controller/changeVisibilityController.js');
 var AggregationController = require('./controller/aggregationController.js');
@@ -17,6 +18,7 @@ function initExpressServer(dataBaseConnection) {
   var dataBaseRequests = new DataBaseRequests(dataBaseConnection);
   var heartBeatController = new HeartBeatController(dataBaseRequests);
   var getAllProjectsController = new GetAllProjectsController(dataBaseRequests);
+  var addProjectController = new AddProjectController(dataBaseRequests);
   var getOneProjectController = new GetOneProjectController(dataBaseRequests);
   var changeVisibilityController = new ChangeVisibilityController(dataBaseRequests);
   var aggregationController = new AggregationController(dataBaseRequests);
@@ -29,11 +31,11 @@ function initExpressServer(dataBaseConnection) {
   app.get('/loglevel', logLevelForFrontend.getLevel);
   app.post('/api/log', logLevelForFrontend.frontendLogRequest);
   app.get('/api/projects', getAllProjectsController.getAllProjects);
+  app.post('/api/projects', addProjectController.addProject);
   app.get('/project/:id', getOneProjectController.getOneProject);
   app.put('/api/project/:id', changeVisibilityController.changeVisibility);
   app.put('/api/project/update/:id', updateProjectPropertiesController.updateProjectProperties);
   app.get('/api/aggregation', aggregationController.aggregate);
-
 
   function logRequest(req, res, next) {
     var parts = {
