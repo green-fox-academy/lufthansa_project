@@ -6,6 +6,7 @@ function responseTemplate(result) {
     var buildToObject = {
       projects: [
         {
+          buildId: build.build_id,
           name: build.project_name,
           id: build.project_id,
           projectUrl: build.project_url,

@@ -20,12 +20,29 @@ h3 {
     margin-left: 200px;
     overflow: hidden;
     table-layout: fixed;
-    width: 800px;
+    width: max800px;
     word-wrap:break-word;
+}
+
+form {
+	font-size: $fontSize;
+    margin-left: 200px;
+    overflow: hidden;
+    table-layout: fixed;
+    width: max600px;
+    word-wrap:break-word;
+		display: flex;
+}
+
+form input {
+	min-height: 25px;
+	height: auto;
+	width: 245px;
 }
 
 td {
 	height: 30px;
+	padding: 1px 1px 1px 5px;
 }
 
 span {
@@ -33,7 +50,11 @@ span {
 }
 
 .projectName {
-	width: 370px;
+	width: 250px;
+}
+
+.projectUrl {
+	width: 250px;
 }
 
 .greenBuild {
@@ -56,4 +77,58 @@ span {
 .buildDate {
 	padding-left: 20px;
 	width: 150px;
+}
+
+.addButton, .inputProjectName, .inputProjectUrl {
+	margin: 2px 4px 2px 2px;
+	cursor: pointer;
+}
+
+.deleteButton {
+	background-repeat: no-repeat;
+	background-position: center;
+	cursor: pointer;
+	background-color: transparent;
+	outline: 0;
+	height:25px;
+	width: 25px;
+	line-height: normal;
+	background-image: url('../config/delete.png');
+}
+
+.editButton {
+	background-repeat: no-repeat;
+	background-position: center;
+	cursor: pointer;
+	background-color: transparent;
+	outline: 0;
+	height:25px;
+	width: 25px;
+	line-height: normal;
+	background-image: url('../config/edit.png');
+}
+
+.addButton {
+	background-repeat: no-repeat;
+	background-position: center;
+	cursor: pointer;
+	line-height: normal;
+	background-color: transparent;
+	outline: 0;
+	height:25px;
+	width: 25px;
+	background-image: url('../config/checkmark.png');
+}
+
+.addButton {
+	margin: 2px 4px 2px 6px;
+}
+
+.inputProjectName, .inputProjectUrl {
+	margin: 2px 8px 2px 2px;
+}
+
+button {
+  -webkit-appearance: none;
+	border-style: none;
 }
