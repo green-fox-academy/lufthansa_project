@@ -11,7 +11,7 @@ var ProjectList = React.createClass({
     var createRows = function (build) {
       var buildDetails = build.projects[0];
       return (<tr key={buildDetails.buildId}>
-          <td className="projectName"><Link to="project/:id">{buildDetails.name}</Link></td>
+          <td className="projectName"><Link to={"project/" + buildDetails.id}>{buildDetails.name}></Link></td>
           <td>{buildDetails.lastBuild.status === true ? <div className="greenBuild"></div> : <div className="redBuild"></div>}</td>
           <td className="buildDate">{buildDetails.lastBuild.time}</td>
         </tr>);

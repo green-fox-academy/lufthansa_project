@@ -2,31 +2,31 @@
 var moment = require('moment');
 
 function responseTemplate(result) {
-  var resultArray = [];
+  // console.log(result.rows[0]);
+  var resultObject = {
+    projects: [],
+    status:'ok'
+  };
   result.rows.forEach(function (build) {
-    var buildToObject = {
-      projects: [
-        {
-          buildId: build.build_id,
-          name: build.project_name,
-          id: build.project_id,
+    var buildToObject = {  
+          projectId: build.project_id,
+          projectName: build.project_name,
           projectUrl: build.project_url,
           lastBuild: {
+            buildId: build.build_id,
             status: build.build_status,
             time: moment(build.max).format('YYYY-MM-DD HH:mm'),
             coverage: {
               totalLines: build.build_totallines,
               actualLines: build.build_actuallines,
             },
-          },
-        },
-      ],
-      status: 'ok',
-    };
-    resultArray.push(buildToObject);
-  });
+          }
+        };
 
-  return resultArray;
+    resultObject.projects.push(buildToObject);
+  });
+  console.log(resultObject);
+  return resultObject;
 }
 
 module.exports = responseTemplate;
