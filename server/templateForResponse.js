@@ -1,4 +1,5 @@
 'use strict';
+var moment = require('moment');
 
 function responseTemplate(result) {
   var resultArray = [];
@@ -12,7 +13,7 @@ function responseTemplate(result) {
           projectUrl: build.project_url,
           lastBuild: {
             status: build.build_status,
-            time: build.build_date,
+            time: moment(build.max).format('HH:mm YYYY-MM-DD'),
             coverage: {
               totalLines: build.build_totallines,
               actualLines: build.build_actuallines,
