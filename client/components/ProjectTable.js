@@ -12,11 +12,6 @@ var ProjectTable = React.createClass({
     };
   },
 
-makeEditable: function (id) {
-  this.setState({ selectedProjectId: id});
-  console.log(selectedProjectId);
-},
-
   createProjectLine: function (project) {
     var _this = this;
     function onDelete() {
@@ -24,15 +19,20 @@ makeEditable: function (id) {
     }
 
     function onEdit() {
-      _this.makeEditable(project.projectId);
+      _this.setState({ selectedProjectId: project.projectId});
+      console.log(project.projectId);
+    }
+
+    function onCancel() {
+      _this.setState({selectedProjectId: 0});
     }
 
     return ( <tr key={project.projectId}>
-        <td className="projectName">{project.projectName}</td>
-        <td className="projectUrl">{project.projectUrl}</td>
-        <td><button onClick={this.onEdit} className="editButton"></button></td>
-        <td><button onClick={onDelete} className="deleteButton"></button></td>
-      </tr>
+          <td className="projectName">{project.projectId === this.state.selectedProjectId ? <input value={project.projectName} /> : project.projectName}</td>
+          <td className="projectUrl">{project.projectId === this.state.selectedProjectId ? <input value={project.projectUrl} /> : project.projectUrl}</td>
+          <td>{project.projectId === this.state.selectedProjectId ? <button className="addButton"></button> : <button onClick={onEdit} className="editButton"></button>}</td>
+          <td>{project.projectId === this.state.selectedProjectId ? <button onClick={onCancel} className="cancelButton"></button> : <button onClick={onDelete} className="deleteButton"></button>}</td>
+        </tr>
     )
   },
   render: function (response) {
