@@ -2,14 +2,12 @@
 
 import React from 'react';
 import {Link} from 'react-router';
-import moment from 'moment';
 
 var ProjectList = React.createClass({
   renderName: 'ProjectList',
 
 
   render: function(response) {
-    moment().format('YYYY-MM-DD HH:mm')
     var createRows = function (build) {
       var buildDetails = build.projects[0];
       return (<tr key={buildDetails.buildId}>

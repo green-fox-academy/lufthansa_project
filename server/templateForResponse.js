@@ -13,7 +13,7 @@ function responseTemplate(result) {
           projectUrl: build.project_url,
           lastBuild: {
             status: build.build_status,
-            time: moment(build.max).format('HH:mm YYYY-MM-DD'),
+            time: moment(build.max).format('YYYY-MM-DD HH:mm'),
             coverage: {
               totalLines: build.build_totallines,
               actualLines: build.build_actuallines,
