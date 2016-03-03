@@ -23,6 +23,7 @@
     "pg": "4.4.4",
     "react": "^0.14.7",
     "react-dom": "^0.14.7",
+    "react-progressbar": "^1.2.0",
     "react-router": "^2.0.0",
     "xml2js": "^0.4.16"
   },
