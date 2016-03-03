@@ -33,8 +33,8 @@ function initExpressServer(dataBaseConnection) {
   app.get('/api/projects', getAllProjectsController.getAllProjects);
   app.post('/api/projects', addProjectController.addProject);
   app.get('/project/:id', getOneProjectController.getOneProject);
-  app.put('/api/project/:id', changeVisibilityController.changeVisibility);
-  app.put('/api/project/update/:id', updateProjectPropertiesController.updateProjectProperties);
+  app.put('/api/projects/:id', changeVisibilityController.changeVisibility);
+  app.put('/api/projects/update/:id', updateProjectPropertiesController.updateProjectProperties);
   app.get('/api/aggregation', aggregationController.aggregate);
 
   function logRequest(req, res, next) {

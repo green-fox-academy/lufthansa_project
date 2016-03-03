@@ -8,7 +8,7 @@ function DataBaseRequests(query) {
   };
 
   this.getAllProjects = function (cb) {
-    query('SELECT * FROM projects INNER JOIN builds ON (projects.project_id = builds.project_id) WHERE project_is_visible = TRUE', function (err, result) {
+    query('SELECT * FROM projects INNER JOIN (SELECT distinct on (project_id) MAX(build_date), project_id, build_id, build_actuallines, build_totallines, build_status FROM builds GROUP BY project_id, build_id, build_actuallines, build_totallines, build_status) AS b ON(b.project_id=projects.project_id) WHERE project_is_visible = TRUE', function (err, result) {
       cb(err, result);
     });
   };
@@ -25,8 +25,8 @@ function DataBaseRequests(query) {
     });
   };
 
-  this.updateProjectProperties = function (id, cb) {
-    query('UPDATE projects SET project_name=$1, url=$2 WHERE project_id= $3', [project_name, url, id], function (err, result) {
+  this.updateProjectProperties = function (project, cb) {
+    query('UPDATE projects SET project_name=$1, url=$2 WHERE project_id= $3', [project.name, project.url, project.id], function (err, result) {
       cb(err, result);
     });
   };

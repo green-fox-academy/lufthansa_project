@@ -112,7 +112,6 @@ div .greenBuild, .redBuild {
 	background-repeat: no-repeat;
 	background-position: center;
 	cursor: pointer;
-	line-height: normal;
 	background-color: transparent;
 	outline: 0;
 	height:25px;

@@ -27,7 +27,6 @@ var Projects = React.createClass({
 
   updateList: function(response) {
     this.setState({projectBuildList: response});
-    console.log(response);
   },
 
   render: function(){
