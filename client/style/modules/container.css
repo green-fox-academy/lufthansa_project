@@ -20,7 +20,7 @@ h3 {
     margin-left: 200px;
     overflow: hidden;
     table-layout: fixed;
-    width: max800px;
+    max-width: 800px;
     word-wrap:break-word;
 }
 
@@ -29,7 +29,7 @@ form {
     margin-left: 200px;
     overflow: hidden;
     table-layout: fixed;
-    width: max600px;
+    max-width: 600px;
     word-wrap:break-word;
 		display: flex;
 }
