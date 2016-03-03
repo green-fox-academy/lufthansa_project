@@ -18,19 +18,18 @@ makeEditable: function (id) {
 },
 
   createProjectLine: function (project) {
-    var projectDetails = project.projects[0];
     var _this = this;
     function onDelete() {
-      _this.props.onDeleteClick(projectDetails.id);
+      _this.props.onDeleteClick(project.projectId);
     }
 
     function onEdit() {
-      _this.makeEditable(projectDetails.id);
+      _this.makeEditable(project.projectId);
     }
 
-    return ( <tr key={projectDetails.id}>
-        <td className="projectName">{projectDetails.name}</td>
-        <td className="projectUrl">{projectDetails.projectUrl}</td>
+    return ( <tr key={project.projectId}>
+        <td className="projectName">{project.projectName}</td>
+        <td className="projectUrl">{project.projectUrl}</td>
         <td><button onClick={this.onEdit} className="editButton"></button></td>
         <td><button onClick={onDelete} className="deleteButton"></button></td>
       </tr>

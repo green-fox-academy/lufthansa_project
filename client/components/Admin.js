@@ -25,7 +25,7 @@ var Admin = React.createClass({
   },
 
   updateList: function (response) {
-    this.setState({ projectList: response });
+    this.setState({ projectList: response.projects });
   },
 
   handleNameChange: function (event) {

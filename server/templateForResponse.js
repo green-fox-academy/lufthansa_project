@@ -2,13 +2,12 @@
 var moment = require('moment');
 
 function responseTemplate(result) {
-  // console.log(result.rows[0]);
   var resultObject = {
     projects: [],
     status:'ok'
   };
   result.rows.forEach(function (build) {
-    var buildToObject = {  
+    var buildToObject = {
           projectId: build.project_id,
           projectName: build.project_name,
           projectUrl: build.project_url,
