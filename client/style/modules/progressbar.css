@@ -1,0 +1,15 @@
+@import ../config/colors.css;
+
+.progressbar-container {
+	border: $darkgrey 1px solid;
+	max-width: 300px;
+	position: relative;
+    overflow: hidden;
+}
+
+.progressbar-progress {
+	display: block;
+    height: 100%;
+    background-color: $lightgreen;
+    border: $darkgreen 1px solid;
+}

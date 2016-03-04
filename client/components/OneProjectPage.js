@@ -4,6 +4,7 @@ var React = require('react');
 var fetchRequest = require('../http-request');
 var url = window.location.origin + '/project/';
 var Progress = require('react-progressbar');
+require('../style/modules/progressbar.css');
 
 var OneProject = React.createClass({
 	renderName: 'OneProject',
@@ -11,8 +12,8 @@ var OneProject = React.createClass({
 	getInitialState: function() {
 		return {
 			name: '',
-			currentLines: 0,
-			actualLines: 0,
+			totalLines: 0,
+			coveredLines: 0,
 		};
 	},
 
@@ -25,18 +26,20 @@ var OneProject = React.createClass({
 	},
 
 	updateList: function (response) {
-		console.log(response);
-		this.setState({name: response.name});
+		var project = response.projects[0];
+		this.setState({
+			name: response.projects[0].name,
+			coveredLines: Number(project.lastBuild.coverage.actualLines),
+			totalLines: Number(project.lastBuild.coverage.totalLines)
+		});
 	},
 
 	render: function() {
 		return(
 			<div>
 				<h4>Project name: {this.state.name}</h4>
-				<h4>Coverage: {this.state.currentLines} / {this.state.actualLines}</h4>
-				<div>
-					<Progress completed={20} />
-				</div>
+				<h4>Coverage: {this.state.coveredLines} / {this.state.totalLines}</h4>					
+						<Progress completed={this.state.coveredLines / this.state.totalLines * 100} />
 			</div>);
 	},
 });
