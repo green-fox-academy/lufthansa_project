@@ -20,18 +20,25 @@ var ProjectTable = React.createClass({
 
     function onEdit() {
       _this.setState({ selectedProjectId: project.projectId});
-      console.log(project.projectId);
     }
 
     function onCancel() {
       _this.setState({selectedProjectId: 0});
     }
 
+    function addModification() {
+      _this.props.addModificationClick(project.projectId);
+    }
+
     return ( <tr key={project.projectId}>
-          <td className="projectName">{project.projectId === this.state.selectedProjectId ? <input value={project.projectName} /> : project.projectName}</td>
-          <td className="projectUrl">{project.projectId === this.state.selectedProjectId ? <input value={project.projectUrl} /> : project.projectUrl}</td>
-          <td>{project.projectId === this.state.selectedProjectId ? <button className="addButton"></button> : <button onClick={onEdit} className="editButton"></button>}</td>
-          <td>{project.projectId === this.state.selectedProjectId ? <button onClick={onCancel} className="cancelButton"></button> : <button onClick={onDelete} className="deleteButton"></button>}</td>
+          <td className="projectName">{project.projectId === this.state.selectedProjectId ?
+          <input defaultValue={project.projectName} value={this.props.name}/> : project.projectName}</td>
+          <td className="projectUrl">{project.projectId === this.state.selectedProjectId ?
+          <input defaultValue={project.projectUrl} value={this.props.path} /> : project.projectUrl}</td>
+          <td>{project.projectId === this.state.selectedProjectId ?
+          <button className="addButton" onClick={addModification}></button> : <button onClick={onEdit} className="editButton"></button>}</td>
+          <td>{project.projectId === this.state.selectedProjectId ?
+          <button onClick={onCancel} className="cancelButton"></button> : <button onClick={onDelete} className="deleteButton"></button>}</td>
         </tr>
     )
   },

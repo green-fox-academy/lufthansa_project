@@ -21,7 +21,7 @@ function DataBaseRequests(query) {
 
   this.changeVisibility = function (id, cb) {
     query('UPDATE projects SET project_is_visible = false WHERE project_id= $1', [id], function (err, result) {
-      cb(err, result);
+      cb(err, {'id': id});
     });
   };
 

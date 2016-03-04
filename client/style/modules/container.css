@@ -5,6 +5,16 @@
 	height: 530px;
 }
 
+.container a:link {
+ 	color: $darkgrey;
+ 	display:block;
+ 	text-decoration: none;
+}
+
+.container a:hover {
+    text-decoration: underline;
+}
+
 h3 {
 	font-size: $fontSizeLarge;
 	font-weight: $fontWeightLight;
@@ -22,6 +32,18 @@ h3 {
     table-layout: fixed;
     max-width: 800px;
     word-wrap:break-word;
+}
+
+.fullTable input {
+	font-size: $fontSize;
+	color: $darkgrey;
+	font: $lato;
+    overflow: hidden;
+    word-wrap:break-word;
+		display: flex;
+		min-height: 25px;
+		height: auto;
+		width: 245px;
 }
 
 form {
@@ -43,7 +65,8 @@ form input {
 td {
 	height: 30px;
 	min-width: 30px;
-	padding: 1px 1px 1px 5px;
+	padding: 0px 7px 0px 0px;
+	word-wrap:break-word;
 }
 
 
@@ -137,10 +160,44 @@ div .greenBuild, .redBuild {
 }
 
 .inputProjectName, .inputProjectUrl {
+	font-size: $fontSize;
+	color: $darkgrey;
+	font: $lato;
 	margin: 2px 8px 2px 2px;
 }
 
 button {
   -webkit-appearance: none;
 	border-style: none;
+}
+
+.oneproject-container {
+	margin-left: 200px;
+	margin-top: 50px;
+	position: relative;
+}
+
+.projectName, .coverage {
+	max-width: 120px;
+	text-align: left;
+	margin: 0;
+	font-weight: lighter;
+	position: absolute;
+}
+
+.projectNameTitle {
+	font-size: 30px;
+	font-weight: lighter;
+}
+
+.projectCoverage {
+	font-size: 20px;
+	font-weight: bold;
+}
+
+.projectNameTitle, .projectCoverage {
+	margin-left: 130px;
+	margin-bottom: 10px;
+	max-width: 250px;
+	padding-bottom: 20px;
 }
