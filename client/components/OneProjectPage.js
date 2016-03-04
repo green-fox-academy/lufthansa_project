@@ -26,11 +26,11 @@ var OneProject = React.createClass({
 	},
 
 	updateList: function (response) {
-		var project = response.projects[0];
+		var project = response.projects;
 		this.setState({
-			name: response.projects[0].name,
-			coveredLines: Number(project.lastBuild.coverage.actualLines),
-			totalLines: Number(project.lastBuild.coverage.totalLines)
+			name: project[0].projectName,
+			coveredLines: Number(project[0].lastBuild.coverage.actualLines),
+			totalLines: Number(project[0].lastBuild.coverage.totalLines)
 		});
 	},
 

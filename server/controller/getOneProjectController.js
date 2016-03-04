@@ -9,7 +9,7 @@ function GetOneProjectController(query) {
       if (err) {
         response.status(500).json({ 'problem with database connection': err });
       } else {
-        response.status(200).json(resposeTemplate(result)[0]);
+        response.status(200).json(resposeTemplate(result));
       }
     });
   };
