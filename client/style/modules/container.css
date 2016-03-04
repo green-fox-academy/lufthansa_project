@@ -34,6 +34,18 @@ h3 {
     word-wrap:break-word;
 }
 
+.fullTable input {
+	font-size: $fontSize;
+	color: $darkgrey;
+	font: $lato;
+    overflow: hidden;
+    word-wrap:break-word;
+		display: flex;
+		min-height: 25px;
+		height: auto;
+		width: 245px;
+}
+
 form {
 	font-size: $fontSize;
     margin-left: 200px;
@@ -53,7 +65,8 @@ form input {
 td {
 	height: 30px;
 	min-width: 30px;
-	padding: 1px 1px 1px 5px;
+	padding: 0px 7px 0px 0px;
+	word-wrap:break-word;
 }
 
 
@@ -147,6 +160,9 @@ div .greenBuild, .redBuild {
 }
 
 .inputProjectName, .inputProjectUrl {
+	font-size: $fontSize;
+	color: $darkgrey;
+	font: $lato;
 	margin: 2px 8px 2px 2px;
 }
 

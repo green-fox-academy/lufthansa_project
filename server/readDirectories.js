@@ -21,7 +21,24 @@ function readFromDirectories() {
     var resultArray = projectNamesFromDB.filter(function (e) {
       return localDirectories.indexOf(e) === -1;
     });
-    return resultArray;
+    return isResultArrayEmpty(resultArray);
+  }
+
+  function isResultArrayEmpty(resultArray) {
+    if (resultArray.length === 0) {
+      return {
+        status: 'ok'
+      };
+    } else {
+      return resultArrayIsNotEmpty(resultArray);
+    }
+  }
+
+  function resultArrayIsNotEmpty(resultArray){
+    return {
+      status: 'error',
+      notExistFolder: resultArray
+    };
   }
 
   that.asyncDir = asyncDir;
