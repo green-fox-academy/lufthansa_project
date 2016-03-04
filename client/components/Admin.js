@@ -25,8 +25,7 @@ var Admin = React.createClass({
   },
 
   updateList: function (response) {
-    console.log(response);
-    this.setState({ projectList: response });
+    this.setState({ projectList: response.projects });
   },
 
   handleNameChange: function (event) {
@@ -64,7 +63,7 @@ var Admin = React.createClass({
     return (
         <div>
           <h3>Admin form</h3>
-          <ProjectTable projectList={this.state.projectList} onDeleteClick={this.delete} />
+          <ProjectTable projectList={this.state.projectList} onDeleteClick={this.delete}/>
             <form className="inputForm" onSubmit={this.handleSubmit}>
               <input className="inputProjectName" type="text" onChange={this.handleNameChange} value={this.state.name} placeholder="type project name" />
               <input className="inputProjectUrl" type="text" onChange={this.handlePathChange} value={this.state.path} placeholder="type path" />

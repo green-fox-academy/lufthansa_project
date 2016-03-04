@@ -12,7 +12,7 @@ var Projects = React.createClass({
   mixins: [SetIntervalMixin],
   getInitialState: function() {
     return {
-      projectBuildList: []};
+      projectBuildList: []}
   },
 
   componentDidMount: function() {
@@ -26,7 +26,7 @@ var Projects = React.createClass({
   },
 
   updateList: function(response) {
-    this.setState({projectBuildList: response});
+    this.setState({projectBuildList: response.projects});
   },
 
   render: function(){
