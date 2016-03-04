@@ -177,8 +177,8 @@ button {
 	position: relative;
 }
 
-.projectName, .coverage {
-	max-width: 120px;
+.oneProjectName, .coverage {
+
 	text-align: left;
 	margin: 0;
 	font-weight: lighter;

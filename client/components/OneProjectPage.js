@@ -38,7 +38,7 @@ var OneProject = React.createClass({
 	render: function() {
 		return(
 			<div className="oneproject-container">
-				<h4 className="projectName">Project name: </h4>
+				<h4 className="oneProjectName">Project name: </h4>
 					<div className="projectNameTitle">{this.state.name}</div>
 				<h4 className="coverage">Coverage: </h4>
 					<div className="projectCoverage">{this.state.coveredLines} / {this.state.totalLines}</div>				
