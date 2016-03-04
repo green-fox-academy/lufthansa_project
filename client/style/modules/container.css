@@ -5,6 +5,16 @@
 	height: 530px;
 }
 
+.container a:link {
+ 	color: $darkgrey;
+ 	display:block;
+ 	text-decoration: none;
+}
+
+.container a:hover {
+    text-decoration: underline;
+}
+
 h3 {
 	font-size: $fontSizeLarge;
 	font-weight: $fontWeightLight;
@@ -159,4 +169,35 @@ div .greenBuild, .redBuild {
 button {
   -webkit-appearance: none;
 	border-style: none;
+}
+
+.oneproject-container {
+	margin-left: 200px;
+	margin-top: 50px;
+	position: relative;
+}
+
+.oneProjectName, .coverage {
+
+	text-align: left;
+	margin: 0;
+	font-weight: lighter;
+	position: absolute;
+}
+
+.projectNameTitle {
+	font-size: 30px;
+	font-weight: lighter;
+}
+
+.projectCoverage {
+	font-size: 20px;
+	font-weight: bold;
+}
+
+.projectNameTitle, .projectCoverage {
+	margin-left: 130px;
+	margin-bottom: 10px;
+	max-width: 250px;
+	padding-bottom: 20px;
 }
