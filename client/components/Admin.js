@@ -12,7 +12,9 @@ var Admin = React.createClass({
     return {
       projectList: [],
       name:'',
+      newname:'',
       path:'',
+      newpath: ''
     };
   },
 
@@ -49,10 +51,18 @@ var Admin = React.createClass({
     fetchRequest('PUT', url + '/' + id, null, this.getProjectList);
   },
 
+  editName: function (newName) {
+    this.setState({newname: newName});
+  },
+
+  editPath: function (newPath) {
+    this.setState({newpath: newPath});
+  },
+
   edit: function (id) {
     var project = {
-      'name': this.state.name,
-      'url': this.state.path,
+      'name': this.state.newname,
+      'url': this.state.newpath,
       'id': id
     }
     fetchRequest('PUT', url + '/update/' + id, null, this.getProjectList);
@@ -63,7 +73,8 @@ var Admin = React.createClass({
     return (
         <div>
           <h3>Admin form</h3>
-          <ProjectTable projectList={this.state.projectList} onDeleteClick={this.delete} addModificationClick={this.edit} />
+          <ProjectTable projectList={this.state.projectList} onDeleteClick={this.delete} addModificationClick={this.edit}
+            addNewName={this.editName} addNewPath={this.editPath} />
             <form className="inputForm" onSubmit={this.handleSubmit}>
               <input className="inputProjectName" type="text" onChange={this.handleNameChange} value={this.state.name} placeholder="type project name" />
               <input className="inputProjectUrl" type="text" onChange={this.handlePathChange} value={this.state.path} placeholder="type path" />

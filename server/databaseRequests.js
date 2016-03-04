@@ -26,7 +26,7 @@ function DataBaseRequests(query) {
   };
 
   this.updateProjectProperties = function (project, cb) {
-    query('UPDATE projects SET project_name=$1, url=$2 WHERE project_id= $3', [project.name, project.url, project.id], function (err, result) {
+    query('UPDATE projects SET project_name=$1, project_url=$2 WHERE project_id= $3', [project.name, project.url, project.id], function (err, result) {
       cb(err, result);
     });
   };
