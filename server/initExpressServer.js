@@ -11,6 +11,7 @@ var GetOneProjectController = require('./controller/getOneProjectController.js')
 var ChangeVisibilityController = require('./controller/changeVisibilityController.js');
 var AggregationController = require('./controller/aggregationController.js');
 var UpdateProjectPropertiesController = require('./controller/updateProjectPropertiesController');
+var AddBuildController = require('./controller/addBuildController');
 var logger = require('./logger.js')();
 
 function initExpressServer(dataBaseConnection) {
@@ -23,6 +24,7 @@ function initExpressServer(dataBaseConnection) {
   var changeVisibilityController = new ChangeVisibilityController(dataBaseRequests);
   var aggregationController = new AggregationController(dataBaseRequests);
   var updateProjectPropertiesController = new UpdateProjectPropertiesController(dataBaseRequests);
+  var addBuildController = new AddBuildController(dataBaseRequests);
 
   app.use(express.static('public'));
   app.use(bodyParser.json());
@@ -36,6 +38,7 @@ function initExpressServer(dataBaseConnection) {
   app.put('/api/projects/:id', changeVisibilityController.changeVisibility);
   app.put('/api/projects/update/:id', updateProjectPropertiesController.updateProjectProperties);
   app.get('/api/aggregation', aggregationController.aggregate);
+  app.post('/api/builds', addBuildController.addBuild);
 
   function logRequest(req, res, next) {
     var parts = {

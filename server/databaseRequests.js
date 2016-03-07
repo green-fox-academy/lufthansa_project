@@ -43,6 +43,13 @@ function DataBaseRequests(query) {
       cb(err, result);
     });
   };
+
+  this.addBuild = function (buildDetails, cb) {
+    query('INSERT INTO builds(project_id, build_date, build_status, build_totallines, build_actuallines, build_test_report) VALUES($1, $2, $3, $4, $5, $6)', [1, '2016-02-2- 20:05:00', true, 1000, 750, buildDetails.testReport ], function (err, result) {
+      console.log(result);
+      cb(err, result);
+    });
+  };
 }
 
 module.exports = DataBaseRequests;

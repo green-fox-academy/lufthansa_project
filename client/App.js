@@ -17,12 +17,12 @@ function main() {
 
 function displayMainPage(response) {
   config.systemLogLevel = response.BackendLevel;
+  var log = new Logger();
+  log.info('main page loaded');
   ReactDOM.render(
     <Router history={hashHistory}>{routes}</Router>,
     document.getElementById('app')
   );
-  var log = new Logger();
-  log.info('main page loaded');
 }
 
 main();

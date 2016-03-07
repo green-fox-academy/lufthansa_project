@@ -4,6 +4,8 @@ var fs = require('fs');
 var xml2js = require('xml2js');
 var testReportXML = './testReport.xml';
 var parser = new xml2js.Parser();
+var fetchRequest = require('../client/http-request.js');
+
 
 function TestReportReader(file, fs, parser) {
   this.file = file;
@@ -59,10 +61,14 @@ TestReportReader.prototype.createTestReportObject = function (result) {
 
 TestReportReader.prototype.forwardReportObject = function (error, testReport) {
   if (error) {
-    console.log(error);
+    return console.log(error);
   }
+  var buildDetails = {
+    testReport : JSON.stringify(testReport),
+  };
+  return console.log(buildDetails);
 
-  console.log(testReport);
 };
+
 
 module.exports = TestReportReader;
