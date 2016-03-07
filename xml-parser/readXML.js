@@ -5,30 +5,19 @@ var xml2js = require('xml2js');
 var testReportXML = './testReport.xml';
 var parser = new xml2js.Parser();
 
-function TestReportReader(file, fs, parser) {
-  this.file = file;
-  this.fs = fs;
-  this.parser = parser;
-}
-
-TestReportReader.prototype.readXML = function (callback) {
-  var _this = this;
-  this.fs.readFile(this.file, function (err, data) {
+function readXML(file, callback) {
+  fs.readFile(file, function (err, data) {
     if (err) {
-      return callback(err);
+      throw err;
     }
 
-    _this.parser.parseString(data, function (parseErr, result) {
-      if (parseErr) {
-        return callback(parseErr);
-      }
-
-      return callback(null, _this.createTestReportObject(result));
+    parser.parseString(data, function (err, result) {
+      return callback(createTestReportObject(result));
     });
   });
-};
+}
 
-TestReportReader.prototype.createTestReportObject = function (result) {
+function createTestReportObject(result) {
   var testCaseList = [];
   result.testsuite.testcase.forEach(function (tc) {
     var testCaseDetails = {
@@ -49,20 +38,17 @@ TestReportReader.prototype.createTestReportObject = function (result) {
   var testReport = {
     testSuiteName: result.testsuite.$.name,
     testCaseCount: result.testsuite.$.tests,
-    successCount: (result.testsuite.$.tests - result.testsuite.$.failures).toString(),
+    successCount: (result.testsuite.$.tests - result.testsuite.$.failures),
     failureCount: result.testsuite.$.failures,
     runningTime: result.testsuite.$.time,
     testCases: testCaseList,
   };
   return testReport;
-};
+}
 
-TestReportReader.prototype.forwardReportObject = function (error, testReport) {
-  if (error) {
-    console.log(error);
-  }
-
+function forwardTReportObject(testReport) {
   console.log(testReport);
-};
+}
 
-module.exports = TestReportReader;
+readXML(testReportXML, forwardTReportObject);
+

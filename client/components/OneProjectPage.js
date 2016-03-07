@@ -6,6 +6,9 @@ var url = window.location.origin + '/project/';
 var Progress = require('react-progressbar');
 require('../style/modules/progressbar.css');
 require('../style/modules/container.css');
+var Logger = require('../front-end-logger.js');
+var config = require('../config.js');
+var log = new Logger();
 
 var OneProject = React.createClass({
 	renderName: 'OneProject',
@@ -19,6 +22,7 @@ var OneProject = React.createClass({
 	},
 
 	componentDidMount: function () {
+		log.info('route change: ' + window.location);
 		this.getOneProject(this.props.params.id);
 	},
 

@@ -5,6 +5,9 @@ var fetchRequest = require('../http-request');
 var ProjectTable = require('./ProjectTable');
 require('../style/modules/container.css');
 var url = window.location.origin + '/api/projects';
+var Logger = require('../front-end-logger.js');
+var config = require('../config.js');
+var log = new Logger();
 
 var Admin = React.createClass({
   renderName: 'Admin',
@@ -19,6 +22,7 @@ var Admin = React.createClass({
   },
 
   componentDidMount: function () {
+    log.info('route change: ' + window.location);
     this.getProjectList();
   },
 

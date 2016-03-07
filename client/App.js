@@ -22,7 +22,7 @@ function displayMainPage(response) {
     document.getElementById('app')
   );
   var log = new Logger();
-  log.info('main page load');
+  log.info('main page loaded');
 }
 
 main();

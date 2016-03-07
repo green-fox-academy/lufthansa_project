@@ -3,6 +3,9 @@ var ProjectList = require('./Projectlist');
 var fetchRequest = require('../http-request');
 var SetIntervalMixin = require('../mixins/setinterval');
 require('../style/modules/container.css');
+var Logger = require('../front-end-logger.js');
+var config = require('../config.js');
+var log = new Logger();
 
 var url = window.location.origin + '/api/projects';
 
@@ -16,6 +19,7 @@ var Projects = React.createClass({
   },
 
   componentDidMount: function() {
+    log.info('route change: ' + window.location);
     var _this = this;
     this.getItems();
     this.setInterval(function(){ _this.getItems(); }, 10000);
