@@ -39,14 +39,16 @@ var OneProject = React.createClass({
 		});
 	},
 
+	
 	render: function() {
 		return(
 			<div className="oneproject-container">
 				<h4 className="oneProjectName">Project name: </h4>
 					<div className="projectNameTitle">{this.state.name}</div>
 				<h4 className="coverage">Coverage: </h4>
-					<div className="projectCoverage">{this.state.coveredLines} / {this.state.totalLines}</div>				
+					<div className="projectCoverage">{this.state.coveredLines} / {this.state.totalLines}</div>		
 						<Progress completed={this.state.coveredLines / this.state.totalLines * 100} />
+						<div>{Math.floor(this.state.coveredLines / this.state.totalLines * 100) + "%"}</div>
 			</div>);
 	},
 });
