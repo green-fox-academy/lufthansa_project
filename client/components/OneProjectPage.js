@@ -18,6 +18,7 @@ var OneProject = React.createClass({
 			name: '',
 			totalLines: 0,
 			coveredLines: 0,
+			progressBarColor: null
 		};
 	},
 
@@ -37,6 +38,16 @@ var OneProject = React.createClass({
 			coveredLines: Number(project[0].lastBuild.coverage.actualLines),
 			totalLines: Number(project[0].lastBuild.coverage.totalLines)
 		});
+		this.setProggressBarColor();
+	},
+
+	setProggressBarColor: function () {
+		console.log(this.state.coveredLines / this.state.totalLines);
+		if ((this.state.coveredLines / this.state.totalLines) < 0.8) {
+			this.setState({
+				progressBarColor: "#F48D7D"
+			})
+		}
 	},
 
 	
@@ -47,8 +58,8 @@ var OneProject = React.createClass({
 					<div className="projectNameTitle">{this.state.name}</div>
 				<h4 className="coverage">Coverage: </h4>
 					<div className="projectCoverage">{this.state.coveredLines} / {this.state.totalLines}</div>		
-						<Progress completed={this.state.coveredLines / this.state.totalLines * 100} />
-						<div>{Math.floor(this.state.coveredLines / this.state.totalLines * 100) + "%"}</div>
+						<Progress completed={this.state.coveredLines / this.state.totalLines * 100} color={this.state.progressBarColor}/>
+					<div>{Math.floor(this.state.coveredLines / this.state.totalLines * 100) + "%"}</div>
 			</div>);
 	},
 });
