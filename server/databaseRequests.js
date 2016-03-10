@@ -14,7 +14,7 @@ function DataBaseRequests(query) {
   };
 
   this.getOneProject = function (id, cb) {
-    query('SELECT * FROM projects INNER JOIN (SELECT distinct on (project_id) MAX(build_date), project_id, build_id, build_actuallines, build_totallines, build_status FROM builds GROUP BY project_id, build_id, build_actuallines, build_totallines, build_status) AS b ON(b.project_id=projects.project_id) WHERE project_is_visible = TRUE AND projects.project_id = $1', [id], function (err, result) {
+    query('SELECT * FROM projects INNER JOIN (SELECT distinct on (project_id) MAX(build_date), project_id, build_id, build_actuallines, build_totallines, build_status, build_test_report FROM builds GROUP BY project_id, build_id, build_actuallines, build_totallines, build_status, build_test_report) AS b ON(b.project_id=projects.project_id) WHERE project_is_visible = TRUE AND projects.project_id = $1', [id], function (err, result) {
       cb(err, result);
     });
   };
@@ -45,7 +45,7 @@ function DataBaseRequests(query) {
   };
 
   this.addBuild = function (buildDetails, cb) {
-    query('INSERT INTO builds(project_id, build_date, build_status, build_totallines, build_actuallines, build_test_report) VALUES($1, $2, $3, $4, $5, $6)', [1, '2016-02-2- 20:05:00', true, 1000, 750, buildDetails.testReport ], function (err, result) {
+    query('INSERT INTO builds(project_id, build_date, build_status, build_totallines, build_actuallines, build_test_report) VALUES($1, $2, $3, $4, $5, $6)', [1, '2016-03-10- 11:45:00', true, 1000, 750, buildDetails.testReport ], function (err, result) {
       console.log(result);
       cb(err, result);
     });

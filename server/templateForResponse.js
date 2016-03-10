@@ -7,6 +7,7 @@ function responseTemplate(result) {
     status:'ok'
   };
   result.rows.forEach(function (build) {
+    var testReportObject = JSON.parse(build.build_test_report || '{}');
     var buildToObject = {
           projectId: build.project_id,
           projectName: build.project_name,
@@ -19,6 +20,7 @@ function responseTemplate(result) {
               totalLines: build.build_totallines,
               actualLines: build.build_actuallines,
             },
+            testReport: testReportObject
           }
         };
 
