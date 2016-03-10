@@ -177,12 +177,13 @@ button {
 	position: relative;
 }
 
-.oneProjectName, .coverage {
-
-	text-align: left;
-	margin: 0;
+h4 {
+	clear: left;
+    float: left;
+    width: 150px;
+    text-align: right;
 	font-weight: lighter;
-	position: absolute;
+	padding-right: 8px;
 }
 
 .projectNameTitle {
@@ -190,14 +191,14 @@ button {
 	font-weight: lighter;
 }
 
-.projectCoverage {
-	font-size: 20px;
-	font-weight: bold;
+.coveragePercentage, .testCasesPercentage {
+	float: right;
 }
 
-.projectNameTitle, .projectCoverage {
-	margin-left: 130px;
-	margin-bottom: 10px;
-	max-width: 250px;
-	padding-bottom: 20px;
+.testCasesPassing, .TestTimeNumber, .coveragePercentage, .testCasesPercentage, .projectCoverage {
+	font-size: 20px;
+}
+
+.projectNameTitle, .projectCoverage, .testCasesPassing, .testCasesPercentage, .TestTimeNumber, code {
+	padding: 18px;
 }

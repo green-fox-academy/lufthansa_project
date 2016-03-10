@@ -59,7 +59,15 @@ var OneProject = React.createClass({
 				<h4 className="coverage">Coverage: </h4>
 					<div className="projectCoverage">{this.state.coveredLines} / {this.state.totalLines}</div>		
 						<Progress completed={this.state.coveredLines / this.state.totalLines * 100} color={this.state.progressBarColor}/>
-					<div>{Math.floor(this.state.coveredLines / this.state.totalLines * 100) + "%"}</div>
+					<div className="coveragePercentage">{Math.floor(this.state.coveredLines / this.state.totalLines * 100) + "%"}</div>
+				<h4 className="testCases">Test cases passing: </h4>
+					<div className="testCasesPassing">80/92</div>
+					<Progress completed={86}/>
+					<div className="testCasesPercentage">86%</div>
+				<h4 className="testTime">Test time: </h4>
+					<div className="TestTimeNumber">57 ms</div>
+				<h4 className="errors">Errors</h4>
+					<code>This is code.</code>
 			</div>);
 	},
 });
