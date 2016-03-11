@@ -192,7 +192,7 @@ h4 {
 }
 
 .coveragePercentage, .testCasesPercentage {
-	float: right;
+	display: inline-block;
 }
 
 .testCasesPassing, .TestTimeNumber, .coveragePercentage, .testCasesPercentage, .projectCoverage {
@@ -200,5 +200,5 @@ h4 {
 }
 
 .projectNameTitle, .projectCoverage, .testCasesPassing, .testCasesPercentage, .TestTimeNumber, code {
-	padding: 18px;
+	
 }

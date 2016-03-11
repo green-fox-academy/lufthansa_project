@@ -14,7 +14,7 @@ function DataBaseRequests(query) {
   };
 
   this.getOneProject = function (id, cb) {
-    query('SELECT * FROM projects INNER JOIN (SELECT distinct on (project_id) MAX(build_date), project_id, build_id, build_actuallines, build_totallines, build_status, build_test_report FROM builds GROUP BY project_id, build_id, build_actuallines, build_totallines, build_status, build_test_report) AS b ON(b.project_id=projects.project_id) WHERE project_is_visible = TRUE AND projects.project_id = $1', [id], function (err, result) {
+    query('SELECT * FROM projects INNER JOIN (SELECT distinct on (project_id) MAX(build_id), project_id, build_id, build_actuallines, build_totallines, build_status, build_test_report FROM builds GROUP BY project_id, build_id, build_actuallines, build_totallines, build_status, build_test_report) AS b ON(b.project_id=projects.project_id) WHERE project_is_visible = TRUE AND projects.project_id = $1', [id], function (err, result) {
       cb(err, result);
     });
   };
