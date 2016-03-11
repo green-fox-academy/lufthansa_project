@@ -26,9 +26,8 @@ gulp.task('jest', function () {
 gulp.task('jscs-reporter', function () {
   return gulp.src([
           'server.js',
-          // 'client/*.js',
-          // 'client/*.jsx',
           'server/*.js',
+          'parser/*.js',
         ])
     .pipe(jscs())
     .pipe(jscs.reporter());
