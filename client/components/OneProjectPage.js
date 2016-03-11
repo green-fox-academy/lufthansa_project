@@ -71,7 +71,9 @@ var OneProject = React.createClass({
 				<h4 className="testTime">Test time: </h4>
 					<div className="TestTimeNumber">{this.state.testTime} ms</div>
 				<h4 className="errors">Errors</h4>
-					<code>{this.state.error}</code>
+					<div className="code">
+						<code>{this.state.error}</code>
+					</div>
 			</div>);
 	},
 });
