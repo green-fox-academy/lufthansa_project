@@ -3,11 +3,12 @@
 function UpdateProjectProperties(query) {
 
   this.updateProjectProperties = function (request, response) {
-    query.updateProjectProperties({id: request.params.project_id, name: request.body.project_name, url: request.body.project_url}, function (err, result) {
+    console.log(request.body);
+    query.updateProjectProperties({id: request.body.id, name: request.body.name, url: request.body.url}, function (err, result) {
       if (err) {
         response.status(500).json({ 'status': err });
       } else {
-        response.status(201).json({ 'status': result.command});
+        response.status(201).json({ status: 'ok'});
       }
     });
   };

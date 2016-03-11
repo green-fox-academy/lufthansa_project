@@ -30,13 +30,16 @@ var ProjectTable = React.createClass({
       _this.props.addModificationClick(project.projectId);
     }
 
-    function changeName() {
-      _this.props.addNewName(project.projectName);
-    }
-
-    function changePath() {
+    function changeName(event) {
+      _this.props.addNewName(event.target.value);
       _this.props.addNewPath(project.projectUrl);
     }
+
+    function changePath(event) {
+      _this.props.addNewName(project.projectName);
+      _this.props.addNewPath(event.target.value);
+    }
+
 
     return ( <tr key={project.projectId}>
           <td className="projectName">{project.projectId === this.state.selectedProjectId ?

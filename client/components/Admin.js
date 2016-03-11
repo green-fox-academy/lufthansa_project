@@ -69,7 +69,7 @@ var Admin = React.createClass({
       'url': this.state.newpath,
       'id': id
     }
-    fetchRequest('PUT', url + '/update/' + id, null, this.getProjectList);
+    fetchRequest('PUT', url + '/update/' + id, project, this.getProjectList);
   },
 
 
