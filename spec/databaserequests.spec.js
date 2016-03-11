@@ -30,7 +30,7 @@ describe('get one projects query', function() {
   it('should give back one item', function() {
 
         function query(query) {
-         expect(query).toEqual('SELECT * FROM projects INNER JOIN (SELECT distinct on (project_id) MAX(build_date), project_id, build_id, build_actuallines, build_totallines, build_status, build_test_report FROM builds GROUP BY project_id, build_id, build_actuallines, build_totallines, build_status, build_test_report) AS b ON(b.project_id=projects.project_id) WHERE project_is_visible = TRUE AND projects.project_id = $1');
+         expect(query).toEqual('SELECT * FROM projects INNER JOIN (SELECT distinct on (project_id) MAX(build_id), project_id, build_id, build_actuallines, build_totallines, build_status, build_test_report FROM builds GROUP BY project_id, build_id, build_actuallines, build_totallines, build_status, build_test_report) AS b ON(b.project_id=projects.project_id) WHERE project_is_visible = TRUE AND projects.project_id = $1');
         }
 
         var dataBaseRequests = new DataBaseRequests(query);
