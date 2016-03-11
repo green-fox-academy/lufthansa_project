@@ -7,7 +7,7 @@ function ChangeVisibilityController(query) {
       if (err) {
         response.status(500).json({ 'status': err });
       } else {
-        response.status(201).json({ 'status': result.command});
+        response.status(201).json({ status: 'ok'});
       }
     });
   };
