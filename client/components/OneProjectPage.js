@@ -18,6 +18,10 @@ var OneProject = React.createClass({
 			name: '',
 			totalLines: 0,
 			coveredLines: 0,
+			testCaseCount: 0,
+			successCount: 0,
+			testTime: 0,
+			error: '',
 			progressBarColor: null
 		};
 	},
@@ -32,15 +36,19 @@ var OneProject = React.createClass({
 	},
 
 	updateList: function (response) {
-		var project = response.projects;
+		var project = response.projects[0].lastBuild;
+		var testList = response.projects[0].lastBuild.testReport.testCases;
+		for (var key in testList) {
+			console.log(testList[key]);
+		}
 		this.setState({
-			name: project[0].projectName,
-			coveredLines: Number(project[0].lastBuild.coverage.actualLines),
-			totalLines: Number(project[0].lastBuild.coverage.totalLines),
-			testCaseCount: Number(project[0].lastBuild.testReport.testCaseCount),
-			successCount: Number(project[0].lastBuild.testReport.successCount),
-			testTime: Math.floor(project[0].lastBuild.testReport.runningTime),
-			error: "TypeError: 'undefined' is not a function (evaluating 'this.getComponentLayout().getDockedItems('render', beforeBody)') http://localhost:9011/hostpage.html 119681",
+			name: project.projectName,
+			coveredLines: Number(project.coverage.actualLines),
+			totalLines: Number(project.coverage.totalLines),
+			testCaseCount: Number(project.testReport.testCaseCount),
+			successCount: Number(project.testReport.successCount),
+			testTime: Math.floor(project.testReport.runningTime),
+			 
 		});
 		this.setProggressBarColor();
 	},
