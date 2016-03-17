@@ -16,7 +16,7 @@ var Progressbar = React.createClass({
 
   render: function(){
     return (
-        <Progress completed={this.props.percentage} color={this.determineProgressbarColor(this.props.percentage, this.props.percentageLimit)}/>
+      <Progress completed={this.props.percentage} color={this.determineProgressbarColor(this.props.percentage, this.props.percentageLimit)}/>
     )
   }
 })

@@ -14,9 +14,13 @@ var OneProject = React.createClass({
 
 	getInitialState: function() {
 		return {
-			// name: '',
-			// totalLines: 0,
-			// coveredLines: 0,
+			name: '',
+			totalLines: 0,
+			coveredLines: 0,
+			testCaseCount: 0,
+			successCount: 0,
+			testTime: null,
+			error: [],
 		};
 	},
 
