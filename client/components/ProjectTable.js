@@ -23,10 +23,11 @@ var ProjectTable = React.createClass({
     }
 
     function onCancel() {
-      _this.setState({selectedProjectId: 0});
+      _this.setState({ selectedProjectId: 0 });
     }
 
     function addModification() {
+      _this.setState({ selectedProjectId: 0 });
       _this.props.addModificationClick(project.projectId);
     }
 
