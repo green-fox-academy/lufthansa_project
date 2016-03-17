@@ -1,10 +1,9 @@
 'use strict';
 
 var React = require('react');
+var Progressbar = require('./ProgressBar');
 var fetchRequest = require('../http-request');
 var url = window.location.origin + '/project/';
-var Progress = require('react-progressbar');
-require('../style/modules/progressbar.css');
 require('../style/modules/container.css');
 var Logger = require('../front-end-logger.js');
 var config = require('../config.js');
@@ -20,9 +19,8 @@ var OneProject = React.createClass({
 			coveredLines: 0,
 			testCaseCount: 0,
 			successCount: 0,
-			testTime: 0,
-			error: '',
-			progressBarColor: null
+			testTime: null,
+			error: [],
 		};
 	},
 
@@ -50,15 +48,6 @@ var OneProject = React.createClass({
 			testTime: Math.floor(project.testReport.runningTime),
 			 
 		});
-		this.setProggressBarColor();
-	},
-
-	setProggressBarColor: function () {
-		if ((this.state.coveredLines / this.state.totalLines) < 0.8) {
-			this.setState({
-				progressBarColor: "#F48D7D"
-			})
-		}
 	},
 
 	render: function() {
@@ -68,11 +57,11 @@ var OneProject = React.createClass({
 					<div className="projectNameTitle">{this.state.name}</div>
 				<h4 className="coverage">Coverage: </h4>
 					<div className="projectCoverage">{this.state.coveredLines} / {this.state.totalLines}</div>		
-						<Progress completed={this.state.coveredLines / this.state.totalLines * 100} color={this.state.progressBarColor}/>
+					<Progressbar percentage={this.state.coveredLines / this.state.totalLines * 100} percentageLimit={80} />
 					<div className="coveragePercentage">{Math.floor(this.state.coveredLines / this.state.totalLines * 100) + "%"}</div>
 				<h4 className="testCases">Test cases passing: </h4>
 					<div className="testCasesPassing">{this.state.successCount} / {this.state.testCaseCount}</div>
-						<Progress completed={this.state.successCount / this.state.testCaseCount * 100}/>
+						<Progressbar percentage={this.state.successCount / this.state.testCaseCount * 100} percentageLimit={100} />
 					<div className="testCasesPercentage">{Math.floor(this.state.successCount / this.state.testCaseCount * 100) + "%"}</div>
 				<h4 className="testTime">Test time: </h4>
 					<div className="TestTimeNumber">{this.state.testTime} ms</div>

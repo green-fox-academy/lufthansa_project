@@ -109,27 +109,27 @@ div .greenBuild, .redBuild {
 }
 
 .deleteButton {
+	background-color: transparent;
+	background-image: url('../config/delete.png');
 	background-repeat: no-repeat;
 	background-position: center;
 	cursor: pointer;
-	background-color: transparent;
-	outline: 0;
 	height:25px;
-	width: 25px;
 	line-height: normal;
-	background-image: url('../config/delete.png');
+	outline: 0;
+	width: 25px;
 }
 
 .editButton {
+	background-color: transparent;
+	background-image: url('../config/edit.png');
 	background-repeat: no-repeat;
 	background-position: center;
 	cursor: pointer;
-	background-color: transparent;
-	outline: 0;
 	height:25px;
-	width: 25px;
 	line-height: normal;
-	background-image: url('../config/edit.png');
+	outline: 0;
+	width: 25px;
 }
 
 .cancelButton {
@@ -167,8 +167,8 @@ div .greenBuild, .redBuild {
 }
 
 button {
-  -webkit-appearance: none;
 	border-style: none;
+  -webkit-appearance: none;
 }
 
 .oneproject-container {
