@@ -199,6 +199,27 @@ h4 {
 	font-size: 20px;
 }
 
-.projectNameTitle, .projectCoverage, .testCasesPassing, .testCasesPercentage, .TestTimeNumber, code {
+.projectNameTitle {
+	padding: 10px;
+}
 
+.projectCoverage {
+	padding-top: 23px;
+}
+
+.testCasesPassing {
+	padding-top: 17px;
+}
+
+.TestTimeNumber {
+	padding-top: 14px;
+}
+
+.coveragePercentage, .testCasesPercentage {
+	padding-left: 8px;
+}
+
+.code {
+	width: 600px;
+	padding-top: 35px;
 }

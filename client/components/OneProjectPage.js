@@ -25,7 +25,6 @@ var OneProject = React.createClass({
 	componentDidMount: function () {
 		log.info('route change: ' + window.location);
 		this.getOneProject(this.props.params.id);
-
 	},
 
 	getOneProject: function (id) {
@@ -54,7 +53,6 @@ var OneProject = React.createClass({
 		}
 	},
 
-	
 	render: function() {
 		return(
 			<div className="oneproject-container">
@@ -65,13 +63,15 @@ var OneProject = React.createClass({
 						<Progress completed={this.state.coveredLines / this.state.totalLines * 100} color={this.state.progressBarColor}/>
 					<div className="coveragePercentage">{Math.floor(this.state.coveredLines / this.state.totalLines * 100) + "%"}</div>
 				<h4 className="testCases">Test cases passing: </h4>
-					<div className="testCasesPassing">{this.state.testCaseCount} / {this.state.successCount}</div>
-					<Progress completed={86}/>
-					<div className="testCasesPercentage">86%</div>
+					<div className="testCasesPassing">{this.state.successCount} / {this.state.testCaseCount}</div>
+						<Progress completed={this.state.successCount / this.state.testCaseCount * 100}/>
+					<div className="testCasesPercentage">{Math.floor(this.state.successCount / this.state.testCaseCount * 100) + "%"}</div>
 				<h4 className="testTime">Test time: </h4>
 					<div className="TestTimeNumber">{this.state.testTime} ms</div>
 				<h4 className="errors">Errors</h4>
-					<code>{this.state.error}</code>
+					<div className="code">
+						<code>{this.state.error}</code>
+					</div>
 			</div>);
 	},
 });
