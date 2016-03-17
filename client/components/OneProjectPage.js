@@ -1,7 +1,7 @@
 'use strict';
 
 var React = require('react');
-var Progressbar = require('./Progressbar');
+var Progressbar = require('./ProgressBar');
 var fetchRequest = require('../http-request');
 var url = window.location.origin + '/project/';
 require('../style/modules/container.css');
@@ -53,7 +53,7 @@ var OneProject = React.createClass({
 					<div className="coveragePercentage">{Math.floor(this.state.coveredLines / this.state.totalLines * 100) + "%"}</div>
 				<h4 className="testCases">Test cases passing: </h4>
 					<div className="testCasesPassing">{this.state.successCount} / {this.state.testCaseCount}</div>
-					<Progressbar percentage={this.state.successCount / this.state.testCaseCount * 100} percentageLimit={100} />
+						<Progressbar percentage={this.state.successCount / this.state.testCaseCount * 100} percentageLimit={100} />
 					<div className="testCasesPercentage">{Math.floor(this.state.successCount / this.state.testCaseCount * 100) + "%"}</div>
 				<h4 className="testTime">Test time: </h4>
 					<div className="TestTimeNumber">{this.state.testTime} ms</div>
