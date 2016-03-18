@@ -33,20 +33,28 @@ var OneProject = React.createClass({
 		fetchRequest('GET', url + id, null, this.updateList);
 	},
 
+	getErrorFromTestCases: function (response) {
+		var errorMessage;
+		var testList = response.projects[0].lastBuild.testReport.testCases;
+		testList.forEach(function(key) {
+			if(key.error !== undefined) {
+				errorMessage+=key.error;
+			}
+		});
+		return errorMessage;
+	},	
+
 	updateList: function (response) {
 		var project = response.projects[0].lastBuild;
-		var testList = response.projects[0].lastBuild.testReport.testCases;
-		for (var key in testList) {
-			console.log(testList[key]);
-		}
+		this.getErrorFromTestCases(response);	
 		this.setState({
-			name: project.projectName,
+			name: response.projects[0].projectName,
 			coveredLines: Number(project.coverage.actualLines),
 			totalLines: Number(project.coverage.totalLines),
 			testCaseCount: Number(project.testReport.testCaseCount),
 			successCount: Number(project.testReport.successCount),
 			testTime: Math.floor(project.testReport.runningTime),
-			 
+			error: this.getErrorFromTestCases(response)
 		});
 	},
 
