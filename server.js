@@ -3,7 +3,7 @@
 var config = require('./server/config.js');
 var initExpress = require('./server/initExpressServer.js');
 var dataBaseConnection = require('./server/dataBaseConnection.js');
-
+console.log(process.env);
 var port = config.PORT_FOR_SERVER;
 var app = initExpress(dataBaseConnection);
 
